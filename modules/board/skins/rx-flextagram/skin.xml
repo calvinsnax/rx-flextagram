@@ -13,7 +13,7 @@
       <group>
         <title xml:lang="ko">기본 설정</title>
 
-        <var name="browser_title_visible" type="select">
+        <var name="browser_title_visible" type="radio">
           <title xml:lang="ko">브라우저 제목</title>
 
           <options value="N">
@@ -45,11 +45,11 @@
           <title xml:lang="ko">첨부 파일 출력</title>
           <description xml:lang="ko">본문에서 첨부 파일의 출력 여부를 결정하세요.</description>
 
-          <options value="">
-            <title xml:lang="ko">표시 (기본)</title>
-          </options>
           <options value="N">
             <title xml:lang="ko">표시 안함</title>
+          </options>
+          <options value="">
+            <title xml:lang="ko">표시 (기본)</title>
           </options>
         </var>
 
@@ -57,11 +57,11 @@
           <title xml:lang="ko">서명 출력</title>
           <description xml:lang="ko">본문 하단에 서명을 출력합니다.</description>
 
-          <options value="">
-            <title xml:lang="ko">표시 (기본)</title>
-          </options>
           <options value="N">
             <title xml:lang="ko">표시 안함</title>
+          </options>
+          <options value="">
+            <title xml:lang="ko">표시 (기본)</title>
           </options>
         </var>
       </group>
