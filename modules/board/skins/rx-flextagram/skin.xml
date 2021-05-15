@@ -38,6 +38,7 @@
             <title xml:lang="ko">표시함(기본)</title>
           </options>
         </var>
+      </group>
 
       <group>
         <title xml:lang="ko">공통 - 목록 설정</title>
