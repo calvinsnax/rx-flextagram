@@ -13,21 +13,6 @@
       <group>
         <title xml:lang="ko">기본 설정</title>
 
-         <var name="board_color_scheme" type="select">
-          <title xml:lang="ko">컬러 모드</title>
-          <description xml:lang="ko">다크 모드 여부를 정하는 기준입니다. '레이아웃에 따라' 옵션은 동일한 다크모드 기술을 적용한 테마/레이아웃에서만 사용할 수 있습니다. (주의: 사용하는 레이아웃의 컬러 모드가 '사용자 지정(기본)'일 때만 해당 옵션이 작동합니다. 사용자 지정이 아닌 경우 게시판 스킨의 컬러 모드도 동일한 모드로 맞춰주세요.)</description>
-
-          <options value="">
-            <title xml:lang="ko">밝은 테마(기본)</title>
-          </options>
-          <options value="dark">
-            <title xml:lang="ko">어두운 테마</title>
-          </options>
-          <options value="auto">
-            <title xml:lang="ko">레이아웃에 따라</title>
-          </options>
-        </var>
-
         <var name="browser_title_visible" type="select">
           <title xml:lang="ko">브라우저 제목</title>
 
