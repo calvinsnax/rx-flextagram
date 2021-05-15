@@ -44,6 +44,8 @@ RX-FLEXTAGRAM 테마는 [RX-FLEX-LAYOUT](https://github.com/calvinsnax/rx-flex-l
 3. 폴더 안에 있는 layouts, modules, widgets, widgetstyles 폴더를 FTP 등을 이용해 Rhymix가 설치된 루트 디렉토리에 업로드합니다.
 4. 사이트 디자인 설정에서 Flextagram Layout이 존재하는지 확인합니다. (보이지 않는다면 캐시파일 재생성을 시도해보세요.)
 
+<br/>
+
 # 메뉴에 아이콘을 추가하는 방법
 
 1. [ionicons](https://ionic.io/ionicons)에서 원하는 아이콘을 찾는다.
