@@ -1,0 +1,41 @@
+{@
+  $jsComments = json_encode($oDocument->getComments())
+}
+<script>
+  // 주소가 댓글을 가리키는 경우 댓글 애니메이션 효과 삽입
+  document.addEventListener('DOMContentLoaded', function() {
+    if(!window.location.hash) return
+    $(window.location.hash).parent().addClass('active')
+  })
+
+  function commentDelete (commentSrl, mid, page, documentSrl) {
+    function successHandler() {
+      const params = {
+        comment_srl: commentSrl,
+        mid,
+        page,
+        document_srl: documentSrl
+      }
+
+      exec_json('board.procBoardDeleteComment',
+        params,
+        function(res) {
+          if(res.message) {
+            appToast(res.message)
+            $('#comment_'+commentSrl).remove()
+            // window.location.reload()
+          }
+        },
+        function(err) {
+          appToast('예기치 못한 문제가 발생했습니다.')
+        }
+      )
+    }
+    
+    window.appConfirm('{sprintf($lang->comfirm_act_msg,$lang->comment,$lang->cmd_delete,$lang->msg_eul)}', successHandler)
+  }
+</script>
+
+<ul class="app-comment-list" cond="$oDocument->getCommentcount()">
+  <include target="comment-item.html" />
+</ul>

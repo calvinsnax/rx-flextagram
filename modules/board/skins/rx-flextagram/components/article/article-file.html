@@ -1,0 +1,31 @@
+<!--@if($module_info->article_file !== 'N')-->
+<load target="article-file.scss" vars="$rxpFlexTheme->variables" />
+
+<div cond="$oDocument->hasUploadedFiles()">
+  <div class="app-dropdown app-article-file">
+    <a class="app-dropdown-toggle app-button app-up app-tooltip" title="{$lang->uploaded_file} 파일 {$oDocument->get('uploaded_count')}개">
+      <ion-icon name="file-tray-outline"></ion-icon>
+    </a>
+
+    <div class="app-dropdown-menu" style="min-width: 230px;">
+      <ul>
+        <div class="app-article-file__head">{$lang->uploaded_file} 파일</div>
+        
+        <li loop="$oDocument->getUploadedFiles()=>$key,$file">
+          {@
+            $path = pathinfo($file->source_filename);
+            $ext = strtolower($path['extension']);
+          }
+  
+          <a href="{getUrl('')}{$file->download_url}" title="{$file->source_filename} / Download {number_format($file->download_count)}">
+            <div>
+              <span>{$file->source_filename} ({FileHandler::filesize($file->file_size)})</span>
+              <div class="tw-text-gray-700 tw-text-xs">(다운 횟수: {number_format($file->download_count)})</div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--@end-->

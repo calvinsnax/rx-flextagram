@@ -1,0 +1,44 @@
+<load target="../../assets/css/comment/comment.scss" vars="$rxpFlexTheme->variables" />
+
+{@ // 댓글 상단 광고 }
+<div class="ed text-center margin-vertical-small" cond="$module_info->comment_top_ad">
+  {$module_info->comment_top_ad}
+</div>
+
+<div id="comment" class="app-comment">
+  <div class="app-comment-title">
+    <span>{$lang->comment} {$oDocument->getCommentcount()}개</span>
+  </div>
+
+  {@ // 댓글 리스트 }
+  <include target="comment-list.html" />
+  
+  {@ // 페이지네이션 }
+  <div cond="$oDocument->comment_page_navigation" class="app-board-section-padding tw-border-b tw-border-gray-300">
+    <ul class="app-pagination">
+      <li>
+        <a href="{getUrl('cpage',1)}#comment" class="app-pagination-prev">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </a>
+      </li>
+
+      <li loop="$page_no=$oDocument->comment_page_navigation->getNextPage()" class="app-active"|cond="$cpage == $page_no">
+        <a href="{getUrl('cpage',$page_no)}#comment">{$page_no}</a>
+      </li>
+
+      <li>
+        <a  href="{getUrl('cpage',$oDocument->comment_page_navigation->last_page)}#comment" class="app-pagination-prev">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  {@ // 댓글 작성 }
+  <include target="comment-write.html" cond="$grant->write_comment && $oDocument->isEnableComment()" />
+</div>
+
+{@ // 댓글 하단 광고 }
+<div class="app-adsense" cond="$module_info->comment_bottom_ad">
+  {$module_info->comment_bottom_ad}
+</div>

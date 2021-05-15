@@ -1,0 +1,108 @@
+$header-height: 52px;
+
+@mixin mobile {
+  @media (max-width: $mobile-w) {
+    @content;
+  }
+}
+
+.app-layout {
+  @include mobile() {
+    padding-bottom: $header-height;
+  }
+}
+
+.app-main {
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  
+  @include mobile() {
+    display: block;
+    padding-top: 1.25rem;
+    padding-bottom: $header-height;
+  }
+}
+
+.app-content {
+  max-width: 100%;
+  flex-basis: 100%;
+  zoom: 1;
+  
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+
+
+  &--with-aside {
+    max-width: 66.66666%;
+    flex-basis: 66.66666%;
+    margin-right: 2rem;
+
+    @include mobile() {
+      max-width: 100%;
+      flex-basis: 100%;
+      margin-right: 0;
+    }
+  }
+
+
+  &--light,
+  & > .x,
+  & > .xm,
+  & > .xc,
+  & > .xl {
+    max-width: $base-container;
+    padding: $base-padding;
+    margin: 1.5rem auto;
+
+    color: black;
+    background-color: white;
+    border-radius: $border-radius-2;
+  }
+
+  &--tight,
+  & > .x,
+  & > .xm,
+  & > .xc,
+  & > .xl {
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  // 게시판 설정 등 관리자 페이지 다크모드로부터 독립화
+  & .x {
+    padding: 1rem;
+    background-color: white;
+    border-radius: $border-radius-1;
+  }
+}
+
+.app-aside {
+  max-width: 33.33333%;
+  flex-basis: 33.33333%;
+
+  @include mobile() {
+    max-width: 100%;
+    flex-basis: 100%;
+    padding-top: 2rem;
+  }
+
+  &__divider {
+    margin: 1rem 0;
+    border-top: 1px solid $color-gray-200;
+    border-top-color: var(--color-gray-200);
+
+    .color_scheme_dark & {
+      border-top-color: $color-gray-100;
+      border-top-color: var(--color-gray-100);
+    }
+  }
+}

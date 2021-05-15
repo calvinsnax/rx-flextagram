@@ -1,0 +1,65 @@
+.app-checkbox {
+  display: none;
+  visibility: hidden;
+
+  & + label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.5rem;
+
+    color: $color-gray-500;
+    color: var(--color-gray-500);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+
+    transition: 0.2s ease;
+
+    &:before {
+      display: inline-block;
+      cursor: pointer;
+      content: "";
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px auto;
+
+      border-radius: 4px;
+      border: 1px solid $color-gray-300;
+      border-color: var(--color-gray-300);
+      vertical-align: middle;
+      background-color: $color-gray-050;
+      background-color: var(--color-gray-050);
+      transition: 0.2s ease;
+    }
+
+    &:hover:before {
+      border-color: $color-gray-400;
+      border-color: var(--color-gray-400);
+    }
+    &:active:before {
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+    }
+  }
+
+  &:checked + label {
+    color: $color-primary;
+    &:before {
+      border-color: $color-primary;
+      background-color: $color-primary;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTVweCIgdmlld0JveD0iMCAwIDIwIDE1Ij4NCjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNy4xNDMsMTQuOTM4IDAsNy43OTYgMi4wMjEsNS43NzYgNy4xNDMsMTAuODk4IDE3Ljk3OSwwLjA2MiAyMCwyLjA4MiAiLz4NCjwvc3ZnPg0K");
+    }
+  }
+  &:hover:checked + label:before {
+    border-color: $color-primary;
+  }
+
+  &:focus + label:before {
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+  }
+}

@@ -1,0 +1,54 @@
+{@
+  $isDocumentOwner = ($comment->member_srl != 0 && ($comment->member_srl == $oDocument->variables['member_srl'] || ($comment->member_srl * -1) == $oDocument->variables['member_srl'])) || ($comment->member_srl == 0  && $comment->getIpaddress() == $oDocument->get('ipaddress'))
+}
+
+<div class="app-comment-item__head">
+  {@ // 댓글 작성자 정보 }
+  <div class="app-comment-item__name<!--@if($isDocumentOwner)--> app-is-owner<!--@end-->">
+    <strong cond="$isDocumentOwner" class="app-comment-item__owner">작성자</strong>
+
+    <a cond="!$comment->member_srl && $comment->homepage" href="{$comment->getHomepageUrl()}" target="_blank">{$comment->getNickName()}</a>
+    
+    <span cond="!$comment->member_srl && !$comment->homepage">{$comment->getNickName()}</span>
+
+    <a cond="$comment->member_srl" href="#popup_menu_area" class="member_{$comment->member_srl}" onclick="return false">{$comment->getNickName()}</a>
+
+    <ion-icon name="lock-closed-outline"  cond="$comment->isSecret()"></ion-icon>
+  </div>
+
+  <el-tooltip content="{zdate($comment->get('regdate'), 'Y-m-d H:i:s')}">
+    <div class="tw-ml-2 tw-mr-4 tw-text-gray-700">{getTimeGap($comment->get('regdate'))}</div>
+  </el-tooltip>
+  
+  <div class="app-divider"></div>
+
+  {@ // 첨부파일 }
+  <div class="app-dropdown" cond="$comment->hasUploadedFiles()">
+    <a class="app-dropdown-toggle app-comment-item__link app-comment-item__file">
+      <span>{$lang->uploaded_file}</span>
+      <span>[{$comment->get('uploaded_count')}]</span>
+    </a>
+
+    <ul class="app-dropdown-menu app-right" style="width: 200px;">
+      <li loop="$comment->getUploadedFiles()=>$key,$file">
+        <a href="{getUrl('')}{$file->download_url}">
+          <div>
+            <span>{$file->source_filename}</span>
+            <span>({FileHandler::filesize($file->file_size)})</span>
+            <div>(다운 횟수: {number_format($file->download_count)})</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  {@ // 관리자 메뉴 }
+  <a cond="$is_logged && $grant->manager" class="app-comment-item__link comment_{$comment->comment_srl} this" href="#popup_menu_area" onclick="return false">
+    관리
+  </a>
+</div>
+
+<div cond="$comment->get('depth')" class="app-comment-item__at">
+  <strong>@{$comment_parent->getNickName()}</strong>
+  <span>님에게 보내는 답글</span>
+</div>

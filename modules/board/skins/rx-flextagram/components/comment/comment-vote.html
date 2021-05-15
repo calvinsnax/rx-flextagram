@@ -1,0 +1,19 @@
+<load target="../../assets/js/comment-vote.js" />
+
+<div class="app-comment-vote" data-target-srl="{$comment->comment_srl}">
+  <button class="app-comment-vote__up"|cond="!$comment->getVote() == 1" class="app-comment-vote__up active"|cond="$comment->getVote()" data-type="up" onclick="alCommentVote(this)">
+    <ion-icon name="thumbs-up-sharp"></ion-icon>
+
+    <!--@if($comment->get('voted_count') > 0)-->
+    <span class="app-comment-vote__count">{$comment->get('voted_count')}</span>
+    <!--@end-->
+  </button>
+  
+  <button class="app-comment-vote__down"|cond="!$comment->getVote()" class="app-comment-vote__down active"|cond="$comment->getVote() == -1" data-type="down" onclick="alCommentVote(this)">
+    <ion-icon name="thumbs-down-sharp"></ion-icon>
+    
+    <!--@if($comment->get('blamed_count') > 0)-->
+    <span class="app-comment-vote__count">{$comment->get('blamed_count')}</span>
+    <!--@end-->
+  </button>
+</div>

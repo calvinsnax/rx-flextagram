@@ -1,0 +1,205 @@
+$header-height: 52px;
+
+.app-header-nav {
+  position: relative;
+  margin-left: 2.5rem;
+  margin-right: -0.75rem;
+  height: 100%;
+  
+
+  // transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+
+  @media (max-width: $mobile-w) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: auto;
+    min-height: $header-height;
+    margin: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+
+    background-color: $color-background;
+    background-color: var(--color-background);
+    
+    border-top: 1px solid $color-gray-300;
+    border-top: 1px solid var(--color-gray-300);
+
+    border-radius: $border-radius-4 $border-radius-4 0 0;
+
+    .color_scheme_dark & {
+      border-top: 1px solid $color-gray-100;
+      border-top: 1px solid var(--color-gray-100);
+    }
+  }
+}
+
+.app-header-nav > ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: $header-height;
+
+  & > li {
+    position: relative;
+    height: $header-height;
+    margin-right: 0.25rem;
+
+    @media (max-width: $mobile-w) {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    & > a {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: $header-height;
+      padding: 0.75rem 0.75rem;
+
+      color: $color-gray-900;
+      color: var(--color-gray-900);
+      font-size: 1rem;
+      font-weight: 400;
+      text-decoration: none;
+      text-transform: uppercase;
+      vertical-align: middle;
+      transition: 0.2s ease;
+
+      i, ion-icon {
+        font-size: 1.5rem;
+        --ionicon-stroke-width: 1.75rem;
+      }
+
+      .app-header-nav-more {
+        color: $color-gray-400;
+        color: var(--color-gray-400);
+        font-size: 1rem;
+        margin-left: 0.25rem;
+        --ionicon-stroke-width: 3rem;
+        
+        @media (max-height: $mobile-w) {
+          display: none;
+        }
+      }
+
+      &:hover {
+        color: $color-gray-700;
+        color: var(--color-gray-700);
+      }
+    }
+
+    &.active > a {
+      color: $color-gray-900;
+      color: var(--color-gray-900);
+      font-weight: 600;
+    }
+  }
+}
+
+.app-header-nav-child {
+  position: absolute;
+  top: 90%;
+  left: 0;
+
+  list-style-type: none;
+  max-height: 400px;
+  min-width: 150px;
+  padding: 8px;
+  margin: 0;
+  overflow-y: auto;
+
+  border-radius: $border-radius-1;
+  background-color: $color-gray-050;
+  background-color: var(--color-gray-050);
+  box-shadow: rgba(black, 0.05) 0 1px 4px, rgba(black, 0.1) 0 8px 24px;
+
+  transform: translateY(-0.25rem);
+  transition: 0.3s ease;
+
+  border: 1px solid var(--color-gray-100);
+
+  @media (max-height: $mobile-w) {
+    display: none;
+  }
+
+  & > li {
+    margin-bottom: 0.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > a {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+
+      color: $color-gray-600;
+      color: var(--color-gray-600);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+
+      border-radius: 4px;
+
+      transition: 0.2s ease;
+
+      & > i,
+      & > ion-icon {
+        color: $color-gray-500;
+        color: var(--color-gray-500);
+        font-size: 1rem;
+        margin-right: 0.75rem;
+
+        --ionicon-stroke-width: 3rem;
+      }
+
+      &:hover {
+        color: $color-black;
+        color: var(--color-black);
+        background-color: $color-gray-200;
+        background-color: var(--color-gray-200);
+      }
+    }
+
+    &.active > a {
+      color: $color-primary;
+      background-color: rgba($color-primary, 0.1);
+      & > i,
+      & > ion-icon {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.app-header-nav-child {
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+.app-header-nav > ul > li > a:hover + .app-header-nav-child,
+.app-header-nav-child:hover {
+  opacity: 1;
+  visibility: visible;
+  user-select: initial;
+  pointer-events: initial;
+
+  transform: translateY(0);
+}

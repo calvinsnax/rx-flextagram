@@ -1,0 +1,26 @@
+.app-empty-space {
+  text-align: center;
+
+  & > ion-icon {
+    color: $color-gray-600;
+    color: var(--color-gray-600);
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: $color-gray-600;
+    color: var(--color-gray-600);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 22px;
+  }
+}

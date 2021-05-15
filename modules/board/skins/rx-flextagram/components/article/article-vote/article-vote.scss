@@ -1,0 +1,16 @@
+.app-article-vote {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+
+  .app--is-vote {
+    &.active {
+      color: $color-success !important;
+    }
+  }
+  .app--is-blame {
+    &.active {
+      color: $color-danger !important;
+    }
+  }
+}

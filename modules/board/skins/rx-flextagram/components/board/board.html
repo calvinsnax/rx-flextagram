@@ -1,0 +1,16 @@
+{@ // 본문 }
+<div class="app-article" cond="$oDocument->isExists()">
+  <include target="../article/article.html" />
+  
+  <a class="app-button" href="{getUrl('category', '', 'document_srl', '', 'page', '')}">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    <span>목록</span>
+  </a>
+</div>
+
+{@ // 목록 }
+<block cond="!$oDocument->isExists()">
+  <include target="../head/head.html" />
+  <include target="../list/list.html" />
+  <include target="../footer/footer.html" />
+</block>

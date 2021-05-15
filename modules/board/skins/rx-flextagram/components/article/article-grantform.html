@@ -1,0 +1,17 @@
+<load target="article-grantform.scss" vars="$rxpFlexTheme->variables" />
+
+<div class="app-article-grantform">
+  <ion-icon name="lock-closed-outline"></ion-icon>
+
+  <h3>{$lang->msg_is_secret}</h3>
+  <p>{$lang->msg_input_password}</p>
+
+  <form action="./" method="get" onsubmit="return procFilter(this, input_password)">
+    <input type="hidden" name="mid" value="{$mid}" />
+    <input type="hidden" name="page" value="{$page}" />
+    <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+
+    <input type="password" name="password" id="cpw" class="app-input app-expand" />
+    <input type="submit" value="{$lang->cmd_input}" class="app-button app-expand app-primary" />
+  </form>
+</div>

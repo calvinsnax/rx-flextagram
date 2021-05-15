@@ -1,0 +1,20 @@
+<load target="sidebar.js" type="body" />
+<load target="sidebar.scss" vars="RxpFlexTheme::$variables" />
+<load target="sidebar-nav.scss" vars="RxpFlexTheme::$variables" />
+
+<div id="sidebar-menu" class="app-sidebar">
+    <button class="app-sidebar-bg"></button>
+    
+    <div class="app-sidebar__content">
+        <div class="app-sidebar__container">
+            <button class="app-sidebar-close">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+    
+            <include target="sidebar-profile.html" />
+            <include target="sidebar-nav.html" />
+            <include target="sidebar-usermenu.html" />
+            <include target="sidebar-logout.html" />
+        </div>
+    </div>
+</div>

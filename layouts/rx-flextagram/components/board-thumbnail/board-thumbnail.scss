@@ -1,0 +1,25 @@
+.app-board-thumbnail {
+  grid-column: 1 / 6;
+  position: relative;
+  width: 100%;
+  height: 530px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  user-select: none;
+
+  @media (max-width: $mobile-w) {
+    height: 260px;
+  }
+
+  & > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

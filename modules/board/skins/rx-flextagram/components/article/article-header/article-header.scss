@@ -1,0 +1,162 @@
+$header-height: 52px;
+
+@mixin mobile {
+  @media (max-width: $mobile-w) {
+    @content;
+  }
+}
+
+.app-article-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $header-height;
+  margin-bottom: 1rem;
+
+  @include mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+
+    margin-bottom: 0;
+    background-color: $color-background;
+    background-color: var(--color-background);
+    border-bottom: 1px solid $color-gray-200;
+    border-bottom-color: var(--color-gray-200);
+
+    .color_scheme_dark & {
+      border-bottom-color: $color-gray-100;
+      border-bottom-color: var(--color-gray-100);
+    }
+  }
+
+  &__back {
+    position: relative;
+    z-index: 1;
+    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -0.75rem;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    color: $color-gray-900;
+    color: var(--color-gray-900);
+    font-size: 1.75rem;
+
+    border-radius: 100%;
+
+    & > ion-icon {
+      --ionicon-stroke-width: 1rem;
+    }
+    & > svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    &:hover {
+      background-color: $color-gray-100;
+      background-color: var(--color-gray-100);
+    }
+
+    @include mobile {
+      position: absolute;
+      left: 0;
+      margin-left: 0;
+
+      & > svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  &__title {
+    display: none;
+    flex: 1;
+    padding-right: 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @include mobile {
+      display: block;
+      padding-left: 6rem;
+      padding-right: 6rem;
+
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+
+
+  &__icon-group {
+    position: absolute;
+    top: 0;
+    right: 0;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    margin-right: -0.5rem;
+    
+    @include mobile() {
+      padding-right: 0.5rem;
+      margin-right: 0;
+    }
+  }
+  &__icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.5rem;
+
+    color: $color-gray-900;
+    color: var(--color-gray-900);
+    font-size: 1.25rem;
+
+    background-color: transparent;
+    border-radius: 100%;
+
+    transition: .2s ease;
+
+    &:hover {
+      color: var(--color-gray-900);
+      background-color: $color-gray-100;
+      background-color: var(--color-gray-100);
+    }
+
+    & > svg {
+      width: 1.125rem;
+      height: 1.125rem;
+
+      @include mobile {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+
+    &.app--is-more {
+      & > svg {
+        width: 1.25rem;
+        height: 1.25rem;
+
+        @include mobile() {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}

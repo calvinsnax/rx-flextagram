@@ -1,0 +1,166 @@
+<include target="components/base/base-header.html" />
+
+<load target="assets/js/autosize.min.js" />
+<load target="assets/css/write/write.scss" vars="$rxpFlexTheme->variables" />
+
+<script>
+  jQuery(function($) {
+    // textarea 높이 자동 조정
+    const writeTitleInput = $('.app-write-head__input');
+    autosize(writeTitleInput);
+
+    // textarea이기 때문에 enter 키를 막야아 함.
+    writeTitleInput.keydown(function(e) {
+      if(e.keyCode === 13) e.preventDefault()
+    })
+  });
+</script>
+
+<section>
+  <div class="app-write">
+    <h1 class="app-write__title">
+      {$module_info->title ? $module_info->title : $module_info->browser_title} 글쓰기
+    </h1>
+  
+    <form action="./" method="post" onsubmit="return procFilter(this, insert)">
+      <input type="hidden" name="mid" value="{$mid}" />
+      <input type="hidden" name="document_srl" value="{$document_srl}" />
+      <input type="hidden" name="content" value="<!--@if($oDocument->getContentText())-->{$oDocument->getContentText()}<!--@else-->{htmlspecialchars($mi->writeform_default_content)}<!--@end-->" />
+  
+      {@ // 작성자 정보 입력란 }
+      <div class="app-write__head-group">
+        <div class="app-write__head-group-item app-select" cond="$module_info->use_category=='Y'">
+          <select name="category_srl">
+            <option value="">{$lang->category}</option>
+            <option loop="$category_list => $val" disabled="disabled"|cond="!$val->grant" value="{$val->category_srl}" selected="selected"|cond="$val->grant&&$val->selected||$val->category_srl==$oDocument->get('category_srl')">
+              {str_repeat("&nbsp;&nbsp;",$val->depth)} {$val->title} ({$val->document_count})
+            </option>
+          </select>
+        </div>
+  
+        {@ // 관리자 전용 옵션 }
+        <block cond="$grant->manager">
+          <include target="components/write/write-colorpicker.html" />
+          
+          <div class="app-write__head-group-item">
+            <input id="is_notice" class="app-toggle" type="checkbox" name="is_notice" value="Y" checked="checked"|cond="$oDocument->isNotice()" />
+            <label for="is_notice">{$lang->notice}</label>
+          </div>
+    
+          <div class="app-write__head-group-item">
+            <input id="title_bold" class="app-toggle" type="checkbox" name="title_bold" value="Y" checked="checked"|cond="$oDocument->get('title_bold')=='Y'" />
+            <label for="title_bold">{$lang->title_bold}</label>
+          </div>
+        </block>
+      </div>
+    
+      <div class="app-write-head">
+        <textarea class="app-write-head__input" type="text" name="title" title="{$lang->title}" placeholder="제목을 입력해주세요." rows="1"><block cond="$oDocument->getTitleText()">{htmlspecialchars($oDocument->getTitleText())}</block></textarea>
+      </div>
+      
+      {@ // 사용자 정의 입력폼 }
+      <block cond="count($extra_keys)">
+        <load target="assets/css/write/write-extra-form.scss" vars="$rxpFlexTheme->variables" />
+        
+        <div class="app-write-extra-form__required">
+          <span class="app-required">*</span>
+          <span>: {$lang->is_required}</span>
+        </div>
+  
+        <table cond="count($extra_keys)" class="app-extra-form">
+          <tr loop="$extra_keys=>$key,$val">
+            <th>
+              {$val->name}
+              <span class="app-required" cond="$val->is_required=='Y'">*</span>
+            </th>
+            <td>{$val->getFormHTML()}</td>
+          </tr>
+        </table>
+      </block>
+    
+      {@ // EDITOR }
+      <div class="app-write__editor tw-mb-3">{$oDocument->getEditor()}</div>
+  
+      {@ // 옵션 }
+      <ul class="app-write-option">
+        <li cond="!$is_logged">
+          <label>작성자 정보</label>
+            <div class="app-write-option__item">
+              <input type="text" name="nick_name" class="app-input" value="{htmlspecialchars($oDocument->get('nick_name'))}" placeholder="{$lang->writer}" />
+            </div>
+
+            <div class="app-write-option__item">
+              <input type="password" name="password" class="app-input" placeholder="{$lang->password}" />
+            </div>
+        </li>
+        
+        <li>
+          <label for="tags">{$lang->tag}</label>
+    
+          <input type="text" name="tags" id="tags" value="{htmlspecialchars($oDocument->get('tags'))}" class="app-input app-expand" title="Tag" placeholder="{$lang->about_tag}" />
+        </li>
+  
+        <li>
+          <label>기능설정</label>
+          
+          <div class="app-write-option__item" cond="$module_info->secret === 'Y'">
+            <input type="checkbox" id="is_secret" class="app-checkbox" name="is_secret" value="Y" checked="checked"|cond="$oDocument->isSecret()" />
+            <label for="is_secret">{$lang->secret}</label>
+          </div>
+  
+          <div class="app-write-option__item">
+            <input type="checkbox" id="comment_status" class="app-checkbox" name="comment_status" value="ALLOW" checked="checked"|cond="$oDocument->allowComment()" />
+            <label for="comment_status">{$lang->allow_comment}</label>
+          </div>
+        </li>
+  
+        <li cond="$is_logged && (!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')">
+          <label>작성글 관리</label>
+          <div class="app-write-option__content">
+            <button type="button" onclick="doDocumentSave(this)" class="app-write-option__item app-button app-xs">{$lang->cmd_temp_save}</button>
+            <button type="button" onclick="doDocumentLoad(this)" class="app-write-option__item app-button app-xs">{$lang->cmd_load}</button>
+          </div>
+        </li>
+      </ul>
+      
+      <div>
+        <a class="app-button" href="{getUrl('', 'mid', $mid)}">{$lang->cmd_cancel}</a>
+        <button type="submit" onclick="return duplicateCheck(this)" class="app-button app-primary">{$lang->cmd_registration}</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  function duplicateCheck(el) {
+    const delaytime = 10000 // 몇초 후 재활성화 해줄 건지 설정 1000 = 1초
+    var submingText = '전송중...' // 클릭했을 때 보여줄 멘트..등록중
+    var originalText = $(el).val()
+    var checkInput = false
+    
+    //button 인지 submit인지 체크.
+    if(!originalText) {
+      checkInput = false
+      originalText = $(el).text()
+    } else {
+      checkInput = true
+    }
+    
+    //현재 버튼 이름이 submingText와 동일한 경우 전송중으로 판단 전송하지 않음.
+    if(originalText === submingText) return false
+    
+    //기존 멘트를 바꿔준다.
+    if(!checkInput) $(el).text(submingText)
+    else $(el).val(submingText)
+    
+    
+    // 설정한 시간이 지나면 다시 활성화
+    setTimeout(function() {
+      if(checkInput) $(el).val(originalText)
+      else $(el).text(originalText)
+    }, delaytime)
+    
+    return true
+  }
+</script>
+<include target="components/base/base-footer.html" />

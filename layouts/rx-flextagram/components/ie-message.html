@@ -1,0 +1,53 @@
+{@$browser_type = getenv("HTTP_USER_AGENT")}
+<!--@if(substr_count($browser_type,'/MSIE') || substr_count($browser_type,'Trident'))-->
+{@ $browser = "IE" }
+<!--@end-->
+
+<style cond="$browser === 'IE'">
+    .ie-bug-message {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        bottom: 16px;
+        padding: 30px;
+        color: #000000;
+        font-size: 16px;
+        text-align: center;
+
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 6px 25px;
+    }
+
+    .ie-bug-message > .ie-bug-message-icon {
+        color: #9d9d9d;
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .ie-bug-message h1 {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .ie-bug-message p {
+        color: #9d9d9d;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .ie-bug-message a {
+        color: #2d57ff;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+    }
+</style>
+
+<div cond="$browser === 'IE'" class="ie-bug-message">
+    <h1>본 사이트는 IE(Internet Explorer)를 지원하지 않습니다.</h1>
+    <p>Chrome 브라우저나 최신 버전의 Edge 브라우저를 사용해주세요.</p>
+
+    <a href="https://www.google.com/chrome/" target="_blank">크롬 다운로드</a>
+</div>

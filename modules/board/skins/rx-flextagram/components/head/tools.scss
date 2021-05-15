@@ -1,0 +1,65 @@
+.app-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+
+  &-bottom {
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+
+  .app-divider {
+    flex: 1;
+  }
+
+  & > a,
+  & > button {
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+.app-search__target {
+  margin-bottom: 8px;
+}
+
+
+.app-write-button {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+
+  color: white;
+  font-size: 1.5rem;
+  background-color: $color-primary;
+  border-radius: 100%;
+
+  box-shadow: rgba(black, 0.3) 2px 6px 16px;
+
+  transition: background-color .3s ease-in-out;
+
+  @media (max-width: $mobile-w) {
+    right: 1rem;
+    bottom: calc(52px + 1rem);
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+
+  &:hover {
+    background-color: mix(black, $color-primary, 10%);
+  }
+  &:active {
+    background-color: mix(black, $color-primary, 20%);
+  }
+}

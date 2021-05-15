@@ -1,0 +1,29 @@
+{Context::addMetaTag("viewport", "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")}
+
+
+<include target="../../../../layouts/rx-flextagram/_import.html" />
+
+
+{@ 
+	// 단축 표현 설정
+  $mi = $module_info;
+}
+
+
+
+{@ // JS }
+<load target="assets/js/board.js" type="body" />
+
+
+{@
+  if($_COOKIE['editor_type'])
+    $mi->comment_write_type = $_COOKIE['editor_type'];
+
+  if($order_type == "desc")
+    $order_type = "asc";
+  else
+    $order_type = "desc";
+
+  if(!$mi->duration_new = (int)$mi->duration_new)
+    $mi->duration_new = 12
+}

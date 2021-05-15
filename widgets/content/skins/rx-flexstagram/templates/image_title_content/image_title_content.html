@@ -1,0 +1,59 @@
+<load target="image-title-content.scss" vars="$theme" />
+
+  <ul class="app-widget-content app-image-title-content" style="grid-template-columns: repeat({$widget_info->cols_list_count}, 1fr);">
+    <li loop="$widget_info->content_items => $key, $item" cond="$key <= $widget_info->list_count" class="app-col-{$widget_info->cols_list_count}">
+      <a href="{$item->getLink()}" target="_blank"|cond="$widget_info->new_window">
+
+        {@ // 썸네일 }
+        <div class="app-thumbnail" cond="in_array('thumbnail', $widget_info->option_view_arr)">
+          <img cond="$item->getThumbnail()" src="{$item->getThumbnail()}" alt="thumbnail">
+          <div class="app-thumbnail-empty" cond="!$item->getThumbnail()">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </div>
+        </div>
+
+        {@ // @INFO: 위젯에 설정된 배열에 따라 정렬 }
+        <block loop="$widget_info->option_view_arr => $k, $v">
+          {@
+            // 제목
+            // @INFO: 제목 영역 안에 브라우저 타이틀과 카테고리 출력
+          }
+          <div cond="$v == 'title'" class="app-title">
+            {@ // 브라우저 타이틀 }
+            <span class="app-browser-title" cond="$widget_info->show_browser_title == 'Y' && $item->getBrowserTitle()">{$item->getBrowserTitle()}</span>
+
+            {@ // 카테고리 }
+            <block cond="$widget_info->show_category == 'Y' && $item->getCategory()">
+              {@
+                $oDocumentModel = &getModel('document');
+                $oDocument = $oDocumentModel->getDocument($item->get('document_srl'));
+                $category_info = $oDocumentModel->getCategory($oDocument->get('category_srl'));
+              }	
+
+              <span class="app-category" style="color: {$category_info->color} !important;">{$item->getCategory()}</span>
+            </block>
+            
+            <span class="app-title-text">{$item->getTitle($widget_info->subject_cut_size)}</span>
+
+            <span class="app-comment-count" cond="$widget_info->show_comment_count == 'Y' && $item->getCommentCount()" title="Replies">
+              ({$item->getCommentCount()})
+            </span>
+          </div>
+
+          {@ // 본문 }
+          <div class="app-content" cond="$v == 'content'">{$item->getContent()}</div>
+        </block>
+
+        {@
+          $isMetaExist = in_array('nickname', $widget_info->option_view_arr) || in_array('regdate', $widget_info->option_view_arr)
+        }
+        <div class="app-meta" cond="isMetaExist">
+          {@ // 닉네임 }
+          <span class="app-meta-item" cond="in_array('nickname', $widget_info->option_view_arr)">{$item->getNickName($widget_info->nickname_cut_size)}</span>
+
+          {@ // 날짜 }
+          <span class="app-meta-item" cond="in_array('regdate', $widget_info->option_view_arr)">{$item->getRegdate("Y-m-d")}</span>
+        </div>
+      </a>
+    </li>
+  </ul>

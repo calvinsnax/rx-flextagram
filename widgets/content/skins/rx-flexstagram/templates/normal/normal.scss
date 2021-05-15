@@ -1,0 +1,47 @@
+ul.app-widget-content.app-widget-content-normal {
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--color-gray-050);
+  border-radius: 12px;
+
+  & > li {
+    border-bottom: 1px solid var(--color-gray-200);
+    
+    &:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    & > a {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 1rem;
+      color: var(--color-gray-900);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s;
+
+      &:hover {
+        .app-title {
+          text-decoration: underline;
+        }
+      }
+
+      .app-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        color: var(--color-gray-600);
+        font-size: 0.75rem;
+        font-weight: 400;
+
+        & > span {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}

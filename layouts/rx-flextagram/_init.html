@@ -1,0 +1,59 @@
+{@ // 플러그인 }
+<include target="plugins/tooltip/tooltip.html" />
+
+{@
+    // 브라우저 테마 컬러 지정
+    $layoutConfig = RxpFlexTheme::getConfig($layout_info);
+    Context::addMetaTag("theme-color", $layoutConfig['primary_color']);
+    RxpFlexTheme::colorScheme();
+
+    // 게시판인지 체크
+    $is_board = '';
+    if($module_info->module === 'board'):
+        $is_board = 'Y';
+    endif;
+
+    // 소셜 로그인 모델 가져오기
+    if ($layoutConfig['social_login'] == 'Y'):
+        $oSocialxeModel = getModel('socialxe');
+        if (!$layoutConfig['social_login_service']):
+            $layoutConfig['social_login_service'] = array();
+        endif;
+    endif;
+
+    $heaer_darkmode_text = "다크 모드로 전환";
+
+    if(RxpFlexTheme::isDarkMode()):
+        $heaer_darkmode_text = "라이트 모드로 전환";
+    endif;
+}
+
+{@ // 로그인 관련 오류 메시지 출력 }
+<script cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'layouts/rx-flextagram'" >
+    alert('{$XE_VALIDATOR_MESSAGE}')
+</script>
+
+{@ // 다크 모드 전환 코드 }
+<script>
+    <!--@if(\Rhymix\Framework\UA::getColorScheme() === 'auto')-->
+    window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e) {
+        if (e.matches) {
+            $('body').removeClass('color_scheme_light').addClass('color_scheme_dark');
+        } else {
+            $('body').removeClass('color_scheme_dark').addClass('color_scheme_light');
+        }
+    });
+    <!--@endif-->
+
+    function onClickDarkThemeToggle(e) {
+        const isDarkTheme = getColorScheme() === 'dark';
+
+        if (isDarkTheme === true) {
+            setColorScheme('light')
+        } else {
+            setColorScheme('dark')
+        }
+
+        return false;
+    }
+</script>

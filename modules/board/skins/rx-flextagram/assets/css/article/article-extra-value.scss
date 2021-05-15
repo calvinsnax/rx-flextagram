@@ -1,0 +1,53 @@
+.app-extra-value {
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 48px;
+  background-color: $color-gray-200;
+  border-radius: 8px;
+  border-collapse: collapse;
+
+  &, * {
+    box-sizing: border-box;
+    border: none;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
+
+  tr {
+    border-bottom: 1px solid $color-gray-400;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      word-break: break-all;
+      word-wrap: break-word;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
+
+    th {
+      min-width: 3.75rem;
+      font-weight: bold;
+      white-space: nowrap;
+
+      @media (max-width: 768px) {
+        padding-top: 1rem;
+        padding-bottom: 0;
+      }
+    }
+
+    td {
+      width: 100%;
+      @media (min-width: 768px) {
+        padding-left: 0;
+      }
+    }
+  }
+}

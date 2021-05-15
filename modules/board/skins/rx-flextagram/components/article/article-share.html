@@ -1,0 +1,165 @@
+<script src='https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js'></script>
+
+<script>
+  //<![CDATA[
+  var clipboard = new Clipboard('.ed.copy-url');
+
+  clipboard.on('success', function(e) {
+  alert('사이트 주소가 복사되었습니다.');
+  });
+
+  clipboard.on('error', function(e) {
+  prompt('Input Ctrl + C', e.text);
+  });
+  //]]>
+
+
+  // SNS 공유 구현
+  function sendSns(sns, url, title) {
+    var o;
+    var _url = encodeURIComponent(url);
+    var _title = encodeURIComponent(title);
+    var _br  = encodeURIComponent('\r\n');
+
+    switch(sns) {
+      case 'facebook':
+        o = {
+          method:'popup',
+          url:'http://www.facebook.com/sharer/sharer.php?u=' + _url
+        };
+        break;
+
+      case 'twitter':
+        o = {
+          method:'popup',
+          url:'http://twitter.com/intent/tweet?url=' + _url
+        };
+        break;
+
+      case 'googleplus':
+        o = {
+          method:'popup',
+          url:'https://plus.google.com/share?url=' + _url
+        };
+        break;
+
+      case 'kakaostory':
+        o = {
+          method:'popup',
+          url:'https://story.kakao.com/s/share?url=' + _url
+        }
+        break;
+
+      case 'naver':
+        o = {
+          method:'popup',
+          url:'http://share.naver.com/web/shareView.nhn?url=' + _url + '&title=' + _title
+        };
+        break;
+
+      case 'band':
+        o = {
+          method:'web2app',
+          param:'create/post?text=' + _url,
+          a_store:'itms-apps://itunes.apple.com/app/id542613198?mt=8',
+          g_store:'market://details?id=com.nhn.android.band',
+          a_proto:'bandapp://',
+          g_proto:'scheme=bandapp;package=com.nhn.android.band'
+        };
+        break;
+
+      default:
+        alert('지원하지 않는 SNS입니다.');
+        return false;
+    }
+
+    switch(o.method) {
+      case 'popup':
+        window.open(o.url);
+        break;
+
+      case 'web2app':
+        if(navigator.userAgent.match(/android/i))
+        {
+          // Android
+          setTimeout(function(){ location.href = 'intent://' + o.param + '#Intent;' + o.g_proto + ';end'}, 100);
+        }
+        else if(navigator.userAgent.match(/(iphone)|(ipod)|(ipad)/i))
+        {
+          // Apple
+          setTimeout(function(){ location.href = o.a_store; }, 200);
+          setTimeout(function(){ location.href = o.a_proto + o.param }, 100);
+        }
+        else
+        {
+          switch(sns) {
+            case 'band':
+              o = {
+                url: 'http://band.us/plugin/share?body=' + _url
+              }
+              window.open(o.url);
+              break;
+            default:
+              alert('이 기능은 모바일에서만 사용할 수 있습니다.');
+              break;
+          }
+
+        }
+        break;
+    }
+  }
+</script>
+
+<app-dialog-toggle title="공유하기">
+  <el-tooltip content="공유">
+    <a class="app-icon-button app-icon-button-gray">
+      <i class="el-icon-upload2"></i>
+    </a>
+  </el-tooltip>
+
+  <div slot="dialog" style="display: none">
+    <div class="ed share-group">
+      <a class="ed share-button" onclick="sendSns('facebook','{$oDocument->getPermanentUrl()}');">
+        <span class="ed icon" style="color: #515fa9">
+          <i class="fab fa-facebook fa-fw fa-lg"></i>
+        </span>
+        <h5 class="ed share-sns-title">페이스북</h5>
+      </a>
+  
+      <a class="ed share-button" onclick="sendSns('twitter','{$oDocument->getPermanentUrl()}');">
+        <span class="ed icon" style="color: #56aef7">
+          <i class="fab fa-twitter-square fa-fw fa-lg"></i>
+        </span>
+        
+        <h5 class="ed share-sns-title">트위터</h5>
+      </a>
+  
+      <a class="ed share-button" onclick="sendSns('googleplus','{$oDocument->getPermanentUrl()}');">
+        <span class="ed icon" style="color: #d4372c"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></span>
+        <h5 class="ed share-sns-title">구글+</h5>
+      </a>
+  
+      <a class="ed share-button" onclick="sendSns('naver','{$oDocument->getPermanentUrl()}');">
+        <div class="ed icon-naver inline-flex flex-middle">
+          <img src="../../assets/images/ic_brand_naver.svg" alt="naver">
+        </div>
+        <h5 class="ed share-sns-title">네이버</h5>
+      </a>
+  
+      <a class="ed share-button" onclick="sendSns('band','{$oDocument->getPermanentUrl()}');">
+        <img src="../../assets/images/ic_brand_band.svg" alt="band" class="ed sns-icon">
+        <h5 class="ed share-sns-title">밴드</h5>
+      </a>
+  
+      <a class="ed share-button" onclick="sendSns('kakaostory','{$oDocument->getPermanentUrl()}');">
+          <img src="../../assets/images/ic_brand_kakaostory.svg" alt="kakaostory" class="ed sns-icon">
+          <h5 class="ed share-sns-title">카카오스토리</h5>
+        </a>
+    </div>
+  
+    <div class="ed share-copy-url flex">
+      <input class="ed input input-default margin-remove" value="{$oDocument->getPermanentUrl()}" readonly>
+      <button type="button" class="ed copy-url button button-default" data-clipboard-text="{$oDocument->getPermanentUrl()}" onclick="return false;"><span class="ed icon"><i class="fas fa-link fa-fw"></i></span> URL 복사</button>
+    </div>
+  </div>
+</app-dialog-toggle>

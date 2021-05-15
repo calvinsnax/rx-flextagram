@@ -1,0 +1,11 @@
+<!--@if($widget_info->list_type == "gallery")-->
+<include target="../templates/gallery/gallery.html" />
+<!--@elseif($widget_info->list_type == "image_title")-->
+<include target="../templates/image_title/image_title.html" />
+<!--@elseif($widget_info->list_type == "image_title_content")-->
+<include target="../templates/image_title_content/image_title_content.html" />
+<!--@elseif($widget_info->list_type == "title_content")-->
+<include target="../templates/normal/normal.html" />
+<!--@else-->
+<include target="../templates/normal/normal.html" />
+<!--@end-->

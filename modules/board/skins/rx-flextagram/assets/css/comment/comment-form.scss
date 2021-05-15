@@ -1,0 +1,18 @@
+.app-comment-form {
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__author,
+  &__footer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .app-comment-form__footer-item {
+    margin-right: 1rem;
+  }
+}

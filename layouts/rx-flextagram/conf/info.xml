@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">RX-FLEXTAGRAM 레이아웃</title>
+    <description xml:lang="ko">Rhymix 전용 SNS 스타일 오픈소스 레이아웃</description>
+    <version>1.0.0</version>
+    <date>2021-05-15</date>
+    <author email_address="hello@calvinsnax.com" link="https://calvinsnax.com/">
+        <name xml:lang="ko">CΛLVIN-SNΛX</name>
+    </author>
+    <author link="https://github.com/rx-public">
+        <name xml:lang="ko">RXPublic</name>
+    </author>
+
+    <menus>
+        <menu name="global_menu" maxdepth="2" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+        </menu>
+
+        <menu name="sidebar_menu" maxdepth="2" default="true">
+            <title xml:lang="ko">사이드 메뉴</title>
+        </menu>
+
+        <menu name="footer_menu" maxdepth="2" default="true">
+            <title xml:lang="ko">하단 메뉴</title>
+        </menu>
+    </menus>
+
+    <extra_vars>
+        <group>
+            <title xml:lang="ko">일반</title>
+
+            <var name="color_scheme" type="select">
+                <title xml:lang="ko">컬러 모드</title>
+                <description>컬러 모드를 라이트 모드/다크 모드로 설정하면 사용자가 임의로 변경할 수 없도록 테마가 고정됩니다. (사용자 지정의 경우 최초 접속 시 라이트 모드로 표현됩니다.)</description>
+
+                <options value="auto">
+                    <title xml:lang="ko">자동 및 사용자 선택 (기본 값)</title>
+                </options>
+                <options value="light">
+                    <title xml:lang="ko">라이트 모드</title>
+                </options>
+                <options value="dark">
+                    <title xml:lang="ko">다크 모드</title>
+                </options>
+            </var>
+
+            <var name="container_light" type="radio">
+                <title xml:lang="ko">컨텐츠 라이트 모드</title>
+                <description xml:lang="ko">다크모드에서도 컨텐츠 영역을 밝게 표시합니다. 게시판 스킨 등이 다크모드를 지원하지 않을 때 밝은 배경에 표시.</description>
+
+                <options value="">
+                    <title xml:lang="ko">밝게 표시 (기본값)</title>
+                </options>
+                <options value="N">
+                    <title xml:lang="ko">컬러모드 유지</title>
+                </options>
+            </var>
+
+            <var name="primary_color" type="colorpicker" default="#247bff">
+                <title xml:lang="ko">대표 색상</title>
+                <description>흔히 Primary color라고 불리는 대표 색상입니다. 대부분의 포인트 컬러로 사용됩니다.</description>
+            </var>
+
+            <var name="font_family" type="select" default="ari">
+                <title xml:lang="ko">기본 폰트</title>
+                <description>레이아웃에서 사용할 폰트를 선택하세요. ('시스템 폰트 사용' 항목 선택 시 폰트를 불러오지 않아 로딩 속도가 빨라집니다.)</description>
+
+                <options value="noto_sans">
+                    <title xml:lang="ko">Noto Sans KR (기본)</title>
+                </options>
+                <options value="ari">
+                    <title xml:lang="ko">아리따움 돋움</title>
+                </options>
+                <options value="none">
+                    <title xml:lang="ko">시스템 폰트 사용</title>
+                </options>
+            </var>
+
+            <var name="container_width" type="text">
+                <title xml:lang="ko">최대폭 설정</title>
+                <description xml:lang="ko">웹 페이지의 최대폭을 설정합니다. (기본값: 1032px / 실제 가로폭은 최대값 1032px에 좌우 여백을 모두 더한 값인 64px을 빼 968px이 됩니다.)</description>
+            </var>
+
+            <var name="social_login" type="radio">
+                <title xml:lang="ko">소셜 로그인 이용</title>
+                <description xml:lang="ko">로그인창에 소셜 로그인 버튼을 추가할 수 있습니다. (CONORY님의 소셜 XE 모듈 필수)</description>
+
+                <options value="">
+                    <title xml:lang="ko">사용안함 (기본값)</title>
+                </options>
+                <options value="Y">
+                    <title xml:lang="ko">사용</title>
+                </options>
+            </var>
+
+            <var name="social_login_service" type="checkbox">
+                <title xml:lang="ko">사용할 SNS 설정</title>
+                <options value="kakao">
+                    <title xml:lang="ko">카카오</title>
+                </options>
+                <options value="naver">
+                    <title xml:lang="ko">네이버</title>
+                </options>
+                <options value="facebook">
+                    <title xml:lang="ko">페이스북</title>
+                </options>
+                <options value="google">
+                    <title xml:lang="ko">구글</title>
+                </options>
+                <options value="twitter">
+                    <title xml:lang="ko">트위터</title>
+                </options>
+            </var>
+
+            <var name="footer_copyright" type="text">
+                <title xml:lang="ko">푸터 카피라이트 문구</title>
+            </var>
+        </group>
+
+        <group>
+            <title xml:lang="ko">상단바</title>
+
+            <var name="logo_img" type="image">
+                <title xml:lang="ko">로고 이미지</title>
+            </var>
+
+            <var name="logo_img_dark" type="image">
+                <title xml:lang="ko">로고 이미지 (다크)</title>
+                <description xml:lang="ko">다크 모드 시 로고 이미지를 설정할 수 있습니다.</description>
+            </var>
+
+            <var name="logo_height" type="text">
+                <title xml:lang="ko">로고 높이</title>
+                <description xml:lang="ko">로고 이미지의 높이를 조정할 수 있습니다. (px, rem 단위 지원, 기본값: 2.875rem)</description>
+            </var>
+
+            <var name="logo_text" type="text">
+                <title xml:lang="ko">사이트 로고 텍스트</title>
+            </var>
+
+            <var name="logo_url" type="text">
+                <title xml:lang="ko">사이트 로고 링크 주소</title>
+            </var>
+
+            <var name="header_search" type="radio">
+                <title xml:lang="ko">검색 버튼 표시 여부</title>
+                <description xml:lang="ko">검색 기능이 필요없는 사이트에서 아이콘을 표시하지 않게 변경할 수 있습니다.</description>
+
+                <options value="">
+                    <title xml:lang="ko">표시함 (기본값)</title>
+                </options>
+                <options value="N">
+                    <title xml:lang="ko">표시 안함</title>
+                </options>
+            </var>
+        </group>
+
+        <group>
+            <title xml:lang="ko">사이드바</title>
+
+            <var name="use_aside" type="radio">
+                <title xml:lang="ko">사이드바 사용</title>
+                <description xml:lang="ko">오른쪽 사이드에 컨텐츠 영역을 추가합니다.</description>
+
+                <options value="N">
+                    <title xml:lang="ko">사용안함</title>
+                </options>
+                <options value="">
+                    <title xml:lang="ko">사용(기본값)</title>
+                </options>
+            </var>
+
+            <var name="aside_content" type="textarea">
+                <title xml:lang="ko">컨텐츠</title>
+                <description xml:lang="ko"></description>
+            </var>
+        </group>
+
+        <!-- <group>
+            <title xml:lang="ko">부가기능</title>
+
+            <var name="board_thumbnail" type="radio">
+                <title xml:lang="ko">게시물 상단에 썸네일 표시</title>
+                <description xml:lang="ko">게시판 스킨과 상관없이 썸네일이 있는 게시물 열람 시 레이아웃 최상단에 게시물의 썸네일을 출력합니다. (라이믹스 2.0.5 이상 권장)</description>
+
+                <options value="">
+                    <title xml:lang="ko">사용안함 (기본값)</title>
+                </options>
+                <options value="Y">
+                    <title xml:lang="ko">사용</title>
+                </options>
+            </var>
+        </group> -->
+    </extra_vars>
+</layout>

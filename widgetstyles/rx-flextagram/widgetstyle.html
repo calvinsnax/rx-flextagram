@@ -1,0 +1,21 @@
+<load target="style.scss" vars="$rxpFlexTheme->variables" />
+
+{@ $ws_more_url = trim($widgetstyle_extra_var->ws_more_url); }
+
+<section class="app-widgetstyle-wrap">
+  <div class="app-widgetstyle-card">
+    <div class="app-widgetstyle-header">
+      <!--@if($widgetstyle_extra_var->ws_title)-->
+      <div class="app-widgetstyle__title">{$widgetstyle_extra_var->ws_title}</div>
+      <!--@end-->
+  
+      <!--@if($ws_more_url)-->
+      <a class="app-widgetstyle__more" href="{$ws_more_url}">{$widgetstyle_extra_var->ws_more_text}</a>
+      <!--@end-->
+    </div>
+  
+    <div class="app-clearfix">
+      {$widget_content}
+    </div>
+  </div>
+</section>

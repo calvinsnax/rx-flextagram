@@ -1,0 +1,23 @@
+<div id="app-search-form" class="app-dialog">
+    <div class="app-dialog-container">
+        <div class="app-dialog-box">
+            <div class="app-dialog-header">
+                <button class="app-dialog-close">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </button>
+
+                <h3>검색</h3>
+            </div>
+
+            <div class="app-dialog-body">
+                <form action="{getUrl()}" method="get">
+                    <input type="hidden" name="vid" value="{$vid}" />
+                    <input type="hidden" name="mid" value="{$mid}" />
+                    <input type="hidden" name="act" value="IS" />
+                    <input type="text" name="is_keyword" placeholder="검색" value="{$is_keyword}" class="app-input app-expand app-input-margin" />
+                    <button type="submit" class="app-button app-expand app-primary app-plain">검색</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+.app-input {
+  padding: 0;
+  padding-left: 16px;
+  height: 40px;
+
+  color: $color-gray-900;
+  color: var(--color-gray-900);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid $color-gray-200;
+  border-color: var(--color-gray-200);
+  background-color: $color-gray-100;
+  background-color: var(--color-gray-100);
+  box-sizing: border-box;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  transition: 0.2s ease;
+
+  &::-webkit-input-placeholder {
+    color: $color-gray-500;
+    color: var(--color-gray-500);
+  }
+  &:-ms-input-placeholder {
+    color: $color-gray-500;
+    color: var(--color-gray-500);
+  }
+
+  &:focus {
+    outline: none !important;
+    border-color: $color-primary;
+    background-color: $color-gray-050;
+    background-color: var(--color-gray-050);
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+  }
+
+  &.app-xs {
+    height: 2rem;
+    padding-left: 0.5rem;
+
+    font-size: 0.75rem;
+  }
+
+  &.app-expand {
+    display: block;
+    width: 100%;
+  }
+
+  &.app-input-margin {
+    margin-bottom: 0.875rem;
+  }
+}

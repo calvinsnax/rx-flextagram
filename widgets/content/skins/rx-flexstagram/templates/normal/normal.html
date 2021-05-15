@@ -1,0 +1,26 @@
+<load target="normal.scss" vars="$theme" />
+
+<ul class="app-widget-content app-widget-content-normal">
+  <li loop="$widget_info->content_items => $key, $item" cond="$key <= $widget_info->list_count">
+    <a href="{$item->getLink()}" target="_blank"|cond="$widget_info->new_window">
+      <div class="app-title">
+        <block cond="$widget_info->show_category=='Y' && $item->get('category_srl')">
+          {@
+            $oDocumentModel = &getModel('document');
+            $oDocument = $oDocumentModel->getDocument($item->get('document_srl'));
+            $category_info = $oDocumentModel->getCategory($oDocument->get('category_srl'));
+          }	
+          <span class="tw-text-sm tw-font-bold tw-text-gray-700 tw-mr-1" style="color: {$category_info->color} !important;">{$item->getCategory()}</span>
+        </block>
+        
+        <span cond="$item->getTitle($widget_info->subject_cut_size)" class="tw-text-sm">{$item->getTitle($widget_info->subject_cut_size)}</span>
+        <span cond="$widget_info->show_comment_count === 'Y' && $item->getCommentCount()" class="tw-text-sm tw-font-bold tw-text-primary">({$item->getCommentCount()})</span>
+      </div>
+
+      <div class="app-meta">
+        <span cond="$item->getNickName()" class="member_{$item->get('member_srl')} app-author tw-text-xs tw-text-gray-700 tw-mr-2">{$item->getNickName()}</span>
+        <span cond="$item->getRegdate('Y-m-d')" class="tw-text-xs tw-text-gray-700">{$item->getRegdate("Y-m-d")}</span>
+      </div>
+    </a>
+  </li>
+</ul>

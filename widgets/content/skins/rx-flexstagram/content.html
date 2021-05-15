@@ -1,0 +1,12 @@
+<load target="assets/js/content_widget.js" />
+<load target="assets/css/widget.scss" vars="$rxFlexTheme->variables" />
+
+<div class="app-widget-content-main">
+  <!--@if($widget_info->tab_type  == "tab_left")-->
+  <include target="components/_tab_left.html" />
+  <!--@elseif($widget_info->tab_type == "tab_top")-->
+  <include target="components/_tab_top.html" />
+  <!--@else-->
+  <include target="components/_tab_none.html" />
+  <!--@end-->
+</div>

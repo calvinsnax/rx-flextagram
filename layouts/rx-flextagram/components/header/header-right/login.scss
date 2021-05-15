@@ -1,0 +1,98 @@
+.app-login {
+  .app-input {
+    margin-bottom: 0.75rem;
+  }
+
+  &-options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    &__divider {
+      flex: 1;
+    }
+  }
+
+  .app-button[type="submit"] {
+    margin-bottom: 1rem;
+  }
+
+  &__register-message {
+    color: $color-gray-500;
+    font-size: 0.875rem;
+    text-align: center;
+
+    & > span {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+$color-sociapp-google: #e05353;
+$color-sociapp-naver: #4aad39;
+$color-sociapp-facebook: #4378e2;
+$color-sociapp-kakao: #f7e542;
+$color-sociapp-twitter: #56aef7;
+
+.app-sociapp-login-group {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  margin: -0.5rem;
+
+  & > a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0 1rem;
+    margin: 0.5rem;
+
+    color: $color-text-primary;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: $border-radius-1;
+
+    & > span {
+      margin-left: 1rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .app-sociapp-google {
+    color: $color-sociapp-google;
+    background-color: $color-background;
+    background-color: var(--color-background);
+    border: 1px solid $color-gray-300;
+    border-color: var(--color-gray-300);
+  }
+
+  .app-sociapp-facebook {
+    color: $color-text-primary;
+    border-color: $color-sociapp-facebook;
+    background-color: $color-sociapp-facebook;
+  }
+
+  .app-sociapp-kakao {
+    color: #713d3d;
+    border-color: $color-sociapp-kakao;
+    background-color: $color-sociapp-kakao;
+  }
+
+  .app-sociapp-naver {
+    color: $color-text-primary;
+    border-color: $color-sociapp-naver;
+    background-color: $color-sociapp-naver;
+  }
+
+  .app-sociapp-twitter {
+    color: $color-text-primary;
+    border-color: $color-sociapp-twitter;
+    background-color: $color-sociapp-twitter;
+  }
+}

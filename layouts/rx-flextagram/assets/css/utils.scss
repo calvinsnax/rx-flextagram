@@ -1,0 +1,40 @@
+.app-clearfix {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+.app-flex-1 {
+  flex: 1;
+}
+
+
+.app-hidden--dark {
+  .color_scheme_dark & {
+    display: none;
+  }
+}
+
+.app-hidden--light {
+  body:not(.color_scheme_dark) & {
+    display: none;
+  }
+}
+
+.app-flex-group {
+  display: flex;
+  align-items: center;
+
+  & > * {
+    margin-right: 0.5rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

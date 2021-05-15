@@ -1,0 +1,29 @@
+<load target="notice.scss" vars="$rxpFlexTheme->variables" cond="$notice_list" />
+
+  <ul cond="$notice_list" class="app-temp-normal__notice">
+    <li loop="$notice_list=>$no,$document">
+      <block cond="$grant->manager">
+        <input type="checkbox" name="cart" value="{$document->document_srl}" id="{$document->document_srl}" class="app-checkbox" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$document->isCarted()" />
+        <label for="{$document->document_srl}"></label>
+      </block>
+      
+      <!--@if($document->get('hot_document'))-->
+      <strong class="app-notice__head app-notice__hot">화제의 글</strong>
+      <!--@else-->
+      <strong class="app-notice__head">{$lang->notice}</strong>
+      <!-- <strong class="app-notice__head">
+        <ion-icon name="flag"></ion-icon>
+      </strong> -->
+      <!--@end-->
+    
+      <div class="app-notice__content">
+        <span class="app-notice__category" cond="$category_list[$document->get('category_srl')]->title" style="color:{$category_list[$document->get('category_srl')]->color}"|cond="$category_list[$document->get('category_srl')]->color!='transparent'">{$category_list[$document->get('category_srl')]->title}</span>
+    
+      <a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}" class="app-notice__title">{$document->getTitle($module_info->list_title_limit)}</a>
+    
+    
+      <span class="app-notice__comment" cond="$document->getCommentCount()">({$document->getCommentCount()})</span>
+      <span class="app-notice__date">{getTimeGap($document->get('regdate'))}</span>
+      </div>
+    </li>
+  </ul>

@@ -1,0 +1,55 @@
+<div cond="!$logged_info" class="app-sidebar-profile">
+    <script>
+        function onClickHeaderMenuLogin() {
+            toggleDialog("app-login-form");
+
+            jQuery(function ($) {
+                $(".app-sidebar").removeClass("active");
+            });
+        }
+    </script>
+
+    <div class="app-sidebar-profile__image">
+        <!--@if($logged_info->profile_image->src)-->
+            <img
+            src="{$logged_info->profile_image->src}"
+            alt="{$logged_info->nick_name}"
+            class="eq border-circle text-middle"
+            width="40"
+            height="40"
+        />
+        <!--@else-->
+        <ion-icon name="person-outline"></ion-icon>
+        <!--@end-->
+    </div>
+
+    <div class="app-sidebar-profile__body">
+        <div class="app-sidebar-profile__nickname">로그인이 필요합니다.</div>
+        <a class="app-button app-primary app-plain" onclick="onClickHeaderMenuLogin()">로그인 / 회원가입</a>
+    </div>
+
+    <!-- <a class="app-signup" href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a> -->
+</div>
+
+<a cond="$logged_info" class="app-sidebar-profile">
+    <div class="app-sidebar-profile__image">
+        <!--@if($logged_info->profile_image->src)-->
+            <img
+            src="{$logged_info->profile_image->src}"
+            alt="{$logged_info->nick_name}"
+            class="eq border-circle text-middle"
+            width="40"
+            height="40"
+        />
+        <!--@else-->
+        <ion-icon name="person-outline"></ion-icon>
+        <!--@end-->
+    </div>
+
+    <div class="app-sidebar-profile__body">
+        <div class="app-sidebar-profile__nickname">{$logged_info->nick_name}</div>
+        <div class="app-sidebar-profile__nickname">{$logged_info->email}</div>
+    </div>
+</a>
+
+<div class="app-sidebar__divider"></div>

@@ -1,0 +1,17 @@
+<load target="footer.scss" vars="RxpFlexTheme::$variables" />
+
+<footer class="app-footer">
+    <div class="app-container">
+        <ul cond="$footer_menu->list" class="app-footer-nav">
+            <!-- prettier-ignore -->
+            <li loop="$footer_menu->list=>$key1,$val1" class="active"|cond="$val1['selected']">
+                <!-- prettier-ignore -->
+                <a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'">{$val1['link']}</a>
+            </li>
+        </ul>
+
+        <div class="app-footer-copyright">
+            {$layoutConfig['footer_copyright']}
+        </div>
+    </div>
+</footer>

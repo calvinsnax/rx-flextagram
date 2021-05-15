@@ -1,0 +1,56 @@
+<load target="../../assets/css/article/article.scss" vars="$rxpFlexTheme->variables" />
+<load target="../../assets/css/article/article-content.scss" vars="$rxpFlexTheme->variables" />
+<load target="../../assets/css/article/article-media.scss" vars="$rxpFlexTheme->variables" />
+<load target="../../assets/js/article-content.js" />
+
+<section>
+  <include target="article-header/article-header.html" />
+
+  <article class="app-article">
+    {@ // 본문 상단 }
+    <include target="article-head.html" />
+  
+    <div class="app-article-body">
+      {@ // 본문 사용자 정의 테이블 }
+      <block cond="$oDocument->isExtraVarsExists() && (!$oDocument->isSecret() || $oDocument->isGranted())">
+        <load target="../../assets/css/article/article-extra-value.scss" vars="$rxpFlexTheme->variables" />
+  
+        <table border="1" cellspacing="0" summary="Extra Form Output" class="app-extra-value">
+          <tr loop="$oDocument->getExtraVars() => $key,$val" cond="$val->getValueHTML()">
+            <th scope="row">{$val->name}</th>
+            <td>{$val->getValueHTML()}&nbsp;</td>
+          </tr>
+        </table>
+      </block>
+  
+      {@ // 본문 }
+      <div class="app-article-content">
+        {@ // 본문 상단 광고 }
+        <div  class="app-article-ad" cond="$module_info->article_top_ad">
+          {$module_info->article_top_ad}
+        </div>
+  
+        {@ // 비밀번호 입력 }
+        <!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+        <include target="article-grantform.html"/>
+        <!--@else-->
+        {$oDocument->getContent(false)}
+        <!--@end-->
+  
+        {@ // 본문 하단 광고 }
+        <div class="app-article-ad" cond="$module_info->article_bottom_ad">
+          {$module_info->article_bottom_ad}
+        </div>
+        
+        {@ // 태그 }
+        <include target="article-tag.html" />
+      </div>
+    </div>
+  </article>
+
+  <include target="article-toolbar.html" />
+  
+  <include target="../comment/comment.html" />
+</section>
+
+<div class="app-comment-divider"></div>

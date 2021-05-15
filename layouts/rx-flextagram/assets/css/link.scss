@@ -1,0 +1,38 @@
+.app-link {
+  display: inline-flex;
+  padding-bottom: 2px;
+  color: $color-gray-600;
+  color: var(--color-gray-600);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-decoration: none;
+  transition: 0.2s ease;
+
+  & > ion-icon {
+    font-size: 16px;
+  }
+
+  &:hover {
+    color: $color-primary;
+    text-decoration: none !important;
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+// Color
+.app-link {
+  &.app-primary {
+    color: $color-primary;
+
+    &:hover {
+      color: mix(black, $color-primary, 10%);
+    }
+    &:hover {
+      color: mix(black, $color-primary, 20%);
+    }
+  }
+}

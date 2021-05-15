@@ -1,0 +1,132 @@
+$dialog-padding: 1.5rem;
+
+.app-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 600;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  .app-dialog-bg {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, 0.5);
+  }
+
+  .app-dialog-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .app-dialog-box {
+    width: 100%;
+    background-color: $color-background;
+    background-color: var(--color-background);
+    border-radius: $border-radius-2;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 16px 40px;
+  }
+}
+
+.app-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $dialog-padding $dialog-padding 0;
+
+  &::after {
+    content: "";
+    width: 32px;
+  }
+
+  h3 {
+    margin: 0;
+    color: $color-gray-700;
+    color: var(--color-gray-700);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+}
+
+.app-dialog-body {
+  padding: $dialog-padding;
+}
+
+.app-dialog-close {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0;
+
+  color: $color-black;
+  color: var(--color-black);
+  font-size: 1rem;
+
+  background-color: $color-gray-200;
+  background-color: var(--color-gray-200);
+  border-radius: $border-radius-2;
+  outline: none;
+  border: none;
+
+  transition: background-color 250ms;
+
+  ion-icon {
+    color: $color-gray-900;
+    color: var(--color-gray-900);
+    font-size: 1rem;
+  }
+
+  &:focus {
+    outline: none !important;
+  }
+  &:hover {
+    background-color: $color-gray-300;
+    background-color: var(--color-gray-300);
+  }
+  &:active {
+    background-color: $color-gray-400;
+    background-color: var(--color-gray-400);
+  }
+}
+
+.app-dialog {
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+
+  transition: 0.3s ease;
+
+  .app-dialog-box {
+    transition: 0.3s ease;
+    transform: translateY(-1rem);
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    user-select: initial;
+    pointer-events: initial;
+
+    .app-dialog-box {
+      transform: translateY(0);
+    }
+  }
+}

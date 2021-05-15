@@ -1,0 +1,34 @@
+<load target="pagination.scss" vars="$rxpFlexTheme->variables" />
+
+<block cond="$document_list || $notice_list">
+  {@
+    $prev_page = max($page-5, 1);
+    $next_page = min($page+5, $page_navigation->last_page);
+  }
+  
+  <ul class="app-pagination">
+    <li cond="$page > $prev_page" class="app-pagination-first">
+      <a href="{getUrl('page','','document_srl','','division',$division,'last_division',$last_division)}" >
+        처음
+      </a>
+    </li>
+
+    <li cond="$page > $prev_page" class="app-pagination-prev">
+      <a href="{getUrl('page','$prev_page','document_srl','','division',$division,'last_division',$last_division)}" >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </a>
+    </li>
+
+    <block cond="$page_no!=1 && $page_no!=$page_navigation->last_page" loop="$page_no=$page_navigation->getNextPage()">
+      <li class="active"|cond="$page == $page_no">
+        <a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+      </li>
+    </block>
+
+    <li cond="$page < $next_page" class="app-pagination-next">
+      <a href="{getUrl('page',$next_page,'document_srl','','division',$division,'last_division',$last_division)}">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </a>
+    </li>
+  </ul>
+</block>

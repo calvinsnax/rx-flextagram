@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">RX-FLEXTAGRAM 콘텐츠 위젯 스킨</title>
+    <description xml:lang="ko">Content 위젯 스킨입니다.</description>
+    <version>1.0</version>
+    <date>2021-05-15</date>
+    <link>https://calvinsnax.com/</link>
+
+    <author email_address="hello@calvinsnax.com" link="https://calvinsnax.com/">
+        <name xml:lang="ko">CALVINSNAX</name>
+    </author>
+</skin>

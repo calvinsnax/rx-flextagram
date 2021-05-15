@@ -1,0 +1,23 @@
+<load target="header.scss" vars="RxpFlexTheme::$variables" />
+
+<header class="app-header">
+    <div class="app-header-container app-container">
+        <div class="app-header__left">
+            <include target="header-logo.html" />
+            <include target="header-browser-title.html" />
+        </div>
+
+        <div class="app-header__center">
+            
+        </div>
+
+        <div class="app-header__right">
+            <include target="../nav/nav.html" />
+        </div>
+    </div>
+</header>
+
+<div class="app-header-space"></div>
+
+<include cond="!$logged_info" target="header-right/login-dialog.html" />
+<include cond="$layoutConfig['header_search'] !== 'N'" target="header-right/search.html" />

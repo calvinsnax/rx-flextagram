@@ -1,0 +1,82 @@
+.app-select {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  min-width: 142px;
+  height: 40px;
+
+  background: none;
+  border: 1px solid $color-gray-200;
+  background-color: $color-gray-200;
+  border-radius: 6px;
+
+  transition: .2s ease;
+
+  & > select {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    padding-left: 16px;
+    padding-right: 36px;
+    outline: none !important;
+    border: none;
+    background-color: $color-gray-200;
+    border-radius: 6px;
+    
+    -webkit-appearance: none;
+    appearance: none;
+
+    color: $color-black;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: .2s ease;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:disabled {
+      cursor: no-drop;
+      opacity: 0.7;
+    }
+  }
+
+  i,
+  ion-icon {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: $color-gray-600;
+    font-size: 1rem;
+    transition: 250ms ease;
+
+    pointer-events: none;
+  }
+
+  &:hover {
+    background-color: $color-gray-300;
+  }
+
+  &:focus-within,
+  &.isEnabled {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+    background-color: $color-background;
+    select {
+      background-color: $color-background;
+    }
+  }
+
+  &.app-expand {
+    width: 100% !important;
+  }
+}

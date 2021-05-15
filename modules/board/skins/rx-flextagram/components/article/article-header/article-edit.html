@@ -1,0 +1,35 @@
+<div class="app-article-header__icon-group">
+  <a class="app-article-header__icon document_{$oDocument->document_srl}" href="#popup_menu_area" onclick="return false">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+    </svg>
+  </a>
+  
+  <!--@if($oDocument->isEditable())-->
+    <div class="app-dropdown">
+      <a class="app-dropdown-toggle app-article-header__icon app--is-more">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+        </svg>
+      </a>
+    
+      <div class="app-dropdown-menu app-right" style="min-width: 100px">
+        <ul>
+          <li>
+            <a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">
+              <ion-icon name="create-outline"></ion-icon>
+              {$lang->cmd_modify}
+            </a>
+          </li>
+    
+          <li>
+            <a onclick="onClickDocumentDelete('{$oDocument->document_srl}', '{sprintf($lang->comfirm_act_msg,$lang->document,$lang->cmd_delete,$lang->msg_rul)}')">
+              <ion-icon name="trash-outline"></ion-icon>
+              {$lang->cmd_delete}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <!--@end-->
+</div>

@@ -1,0 +1,32 @@
+<load target="article-profile.scss" vars="$rxpFlexTheme->variables" />
+
+<div class="app-article-profile">
+  <div class="app-article-profile__image">
+    <!--@if($oDocument->getProfileImage())-->
+      <img src="{$oDocument->getProfileImage()}" />
+    <!--@else-->
+      <ion-icon name="person-outline"></ion-icon>
+    <!--@end-->
+  </div>
+
+  <div class="app-article-profile__body">
+    <a class="app-nickname member_{$oDocument->get('member_srl')}" href="#popup_menu_area" title="작성자" onclick="return false">{$oDocument->getNickName()}</a>
+
+    <div class="app-regdate app-tooltip" title="{zdate($oDocument->get('regdate'), 'Y-m-d H:i:s')}">{getTimeGap($oDocument->get('regdate'))}</div>
+  </div>
+</div>
+
+<div class="app-article-title">
+  <a class="app-article-category" href="{getUrl('category', $oDocument->get('category_srl'), 'document_srl', '', 'page', '')}" style="color: {$category_list[$oDocument->get('category_srl')]->color}" cond="$oDocument->get('category_srl')">{$category_list[$oDocument->get('category_srl')]->title}</a>
+  <h1>{$oDocument->getTitle()}</h1>
+</div>
+
+<!-- <div class="app-article-meta">
+  <div class="app-article-meta-item" cond="$list_config['readed_count']">{$lang->readed_count} {$oDocument->get('readed_count')}</div>
+
+  <div class="app-divider" cond="$list_config['voted_count']"> ・ </div>
+  <div class="app-article-meta-item" cond="$list_config['voted_count']">{$lang->voted_count} {$oDocument->get('voted_count')}</div>
+  
+  <div class="app-divider app-pc-only" cond="$list_config['voted_count']"> ・ </div>
+  <a class="app-pc-only app-article-meta-item" href="#comment">{$lang->comment} {$oDocument->getCommentcount()}</a>
+</div> -->

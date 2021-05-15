@@ -1,0 +1,34 @@
+<ul class="app-widget-tab">
+  {@$i=0}
+  <!--@foreach($widget_info->tab as $module_srl => $tab)-->
+    <li <!--@if($i==0)--> class="active"<!--@end--> data-tab="tab-id-{$i}">
+      <a href="#">{$tab->title}</a>
+    </li>
+  {@$i++}
+  <!--@end-->
+</ul>
+
+<div class="app-widget-tab-content">
+  <div loop="$widget_info->tab => $key, $value" class="app-widget-tab-item app-tab-id-{$key}<!--@if($key==0)--> active<!--@end-->">
+    {@$widget_info->content_items = $value->content_items}
+    <include target="_tab_none.html" />
+  </div>
+</div>
+
+<script>
+  $(document).ready(function($){
+    
+   $('.app-widget-tab > li').click(function(){
+     var tab_id = $(this).attr('data-tab');
+  
+     $(this).parent('ul.app-widget-tab').find('li.active').removeClass('active');
+     $(this).parent('ul.app-widget-tab').next('.app-widget-tab-content').find('.app-widget-tab-item').removeClass('active');
+  
+     $(this).addClass('active');
+     $(this).parent('ul.app-widget-tab').next('.app-widget-tab-content').find(".app-"+tab_id).addClass('active');
+
+     return false;
+   });
+  
+ });
+</script>

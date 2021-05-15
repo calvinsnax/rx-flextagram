@@ -1,0 +1,15 @@
+{@
+  $thumbnail_style = 'width: ' + $widget_info->thumbnail_width + 'px; height: ' + $widget_info->thumbnail_height + 'px; line-height: ' + $widget_info->thumbnail_height + 'px;';
+}
+
+<load target="gallery.scss" vars="$rxFlexTheme->variables" />
+
+  <ul class="app-widget-content app-gallery" style="grid-template-columns: repeat({$widget_info->cols_list_count}, 1fr);">
+    <li loop="$widget_info->content_items => $key, $item" >
+      <a href="{$item->getLink()}" target="_blank"|cond="$widget_info->new_window">
+        <img cond="$item->getThumbnail()" src="{$item->getThumbnail()}" alt="{str_replace(array('&amp;amp;','&amp;lt;','&amp;gt;','&amp;quot;','&amp;apos;'),array('&amp;','&lt;','&gt;','&quot;','&apos;'),$item->getTitle($widget_info->subject_cut_size))}">
+
+        <ion-icon cond="!$item->getThumbnail()" name="image-outline"></ion-icon>
+      </a>
+    </li>
+  </ul>

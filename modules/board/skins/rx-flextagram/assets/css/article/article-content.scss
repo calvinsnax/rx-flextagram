@@ -1,0 +1,577 @@
+@mixin mobile {
+  @media (max-width: $mobile-w) {
+    @content;
+  }
+}
+
+.app-article-content {
+  p > img {
+    @include mobile {
+      position: relative;
+      display: block;
+      width: calc(100% + (1.25rem * 2));
+      max-width: calc(100% + (1.25rem * 2));
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+    }
+  }
+}
+
+.app-article-content {
+  padding-bottom: 3rem;
+  .xe_content {
+    p, dl, multicol {
+      display: block;
+      margin: 0px 0px $default_paragraph_spacing 0px;
+      line-height: $default_line_height;
+    }
+
+    dd {
+      display: block;
+      margin-inline-start: 40px;
+    }
+
+    blockquote, figure {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+
+      color: $color-gray-700;
+      color: var(--color-gray-700);
+      border-left: 2px solid $color-gray-400;
+      border-left-color: var(--color-gray-400);
+      background-color: $color-gray-100;
+      background-color: var(--color-gray-100);
+
+      & > p {
+        margin: 0;
+      }
+    }
+
+    address {
+      display: block;
+      font-style: italic;
+    }
+
+    blockquote[type=cite] {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+      padding-inline-start: 1rem;
+    }
+
+    a[href] {
+      color: $color-primary;
+      text-decoration: none;
+      transition: 0.2s ease;
+      border-bottom: 1px solid rgba(0,0,0,0);
+      &:hover {
+        // text-decoration: underline;
+        border-bottom-color: $color-primary;
+      }
+    }
+
+    h1, h2, h3, h4, h5 {
+      line-height: 1.5;
+    }
+    h1 {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    h2 {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: .83rem;
+      margin-bottom: .83rem;
+    }
+
+    h3 {
+      display: block;
+      font-size: 1.17rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      display: block;
+      font-size: 1.00rem;
+      font-weight: bold;
+      margin-top: 1.33rem;
+      margin-bottom: 1.33rem;
+    }
+
+    h5 {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: bold;
+      margin-top: 1.67rem;
+      margin-bottom: 1.67rem;
+    }
+
+    h6 {
+      display: block;
+      font-size: 0.67rem;
+      font-weight: bold;
+      margin-top: 2.33rem;
+      margin-bottom: 2.33rem;
+    }
+
+    listing {
+      display: block;
+      font-size: medium;
+      white-space: pre;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    xmp, pre, plaintext {
+      display: block;
+      white-space: pre;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    pre {
+      padding: 1em 1.25rem;
+      border-radius: $border-radius-1;
+      color: $color-info;
+      font-family: $font-family;
+      background-color: mix($color-background, $color-info, 85%);
+    }
+
+    /* tables */
+
+    table {
+      display: table;
+      border-spacing: 0;
+      border-collapse: collapse;
+      box-sizing: border-box;
+      text-indent: 0;
+      border: none;
+
+      td {
+        padding: 0.5em 0.875rem;
+        border: 1px solid $color-gray-300;
+      }
+    }
+
+    table[align="left"] {
+      float: left;
+    }
+
+    table[align="right"] {
+      float: right;
+      text-align: start;
+    }
+
+
+    /* border collapse rules */
+
+      /* Set hidden if we have 'frame' or 'rules' attribute.
+         Set it on all sides when we do so there's more consistency
+         in what authors should expect */
+
+      /* Put this first so 'border' and 'frame' rules can override it. */
+    table[rules] {
+      border-width: thin;
+      border-style: hidden;
+    }
+
+      /* 'border' before 'frame' so 'frame' overrides
+          A border with a given value should, of course, pass that value
+          as the border-width in pixels -> attr mapping */
+
+
+    table[frame] {
+      border: thin hidden;
+    }
+
+    /* specificity must beat table:-moz-table-border-nonzero rule above */
+    table[frame="void"]   { border-style: hidden; }
+    table[frame="above"]  { border-style: outset hidden hidden hidden; }
+    table[frame="below"]  { border-style: hidden hidden outset hidden; }
+    table[frame="lhs"]    { border-style: hidden hidden hidden outset; }
+    table[frame="rhs"]    { border-style: hidden outset hidden hidden; }
+    table[frame="hsides"] { border-style: outset hidden; }
+    table[frame="vsides"] { border-style: hidden outset; }
+    table[frame="box"],
+    table[frame="border"] { border-style: outset; }
+
+
+    /* Internal Table Borders */
+
+      /* 'border' cell borders first */
+
+
+    /* collapse only if rules are really specified */
+    table[rules]:not([rules="none"]):not([rules=""]) {
+      border-collapse: collapse;
+    }
+
+    /* only specified rules override 'border' settings
+      (increased specificity to achieve this) */
+    table[rules]:not([rules=""])> tr > td,
+    table[rules]:not([rules=""])> * > tr > td,
+    table[rules]:not([rules=""])> tr > th,
+    table[rules]:not([rules=""])> * > tr > th,
+    table[rules]:not([rules=""])> td,
+    table[rules]:not([rules=""])> th
+    {
+      border-width: thin;
+      border-style: none;
+    }
+
+
+    table[rules][rules="none"]  > tr > td,
+    table[rules][rules="none"] > * > tr > td,
+    table[rules][rules="none"] > tr > th,
+    table[rules][rules="none"] > * > tr > th,
+    table[rules][rules="none"] > td,
+    table[rules][rules="none"] > th
+    {
+      border-width: thin;
+      border-style: none;
+    }
+
+    table[rules][rules="all"] > tr > td,
+    table[rules][rules="all"] > * > tr > td,
+    table[rules][rules="all"] > tr > th,
+    table[rules][rules="all"] > * > tr > th,
+    table[rules][rules="all"] > td,
+    table[rules][rules="all"] > th
+    {
+      border-width: thin;
+      border-style: solid;
+    }
+
+    table[rules][rules="rows"] > tr,
+    table[rules][rules="rows"] > * > tr {
+      border-block-start-width: thin;
+      border-block-end-width: thin;
+      border-block-start-style: solid;
+      border-block-end-style: solid;
+    }
+
+
+    table[rules][rules="cols"] > tr > td,
+    table[rules][rules="cols"] > * > tr > td,
+    table[rules][rules="cols"] > tr > th,
+    table[rules][rules="cols"] > * > tr > th {
+      border-inline-start-width: thin;
+      border-inline-end-width: thin;
+      border-inline-start-style: solid;
+      border-inline-end-style: solid;
+    }
+
+    table[rules][rules="groups"] > colgroup {
+      border-inline-start-width: thin;
+      border-inline-end-width: thin;
+      border-inline-start-style: solid;
+      border-inline-end-style: solid;
+    }
+    table[rules][rules="groups"] > tfoot,
+    table[rules][rules="groups"] > thead,
+    table[rules][rules="groups"] > tbody {
+      border-block-start-width: thin;
+      border-block-end-width: thin;
+      border-block-start-style: solid;
+      border-block-start-style: solid;
+    }
+
+
+    /* caption inherits from table not table-outer */
+    caption {
+      display: table-caption;
+      text-align: center;
+    }
+
+    table[align="center"] > caption {
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+    }
+
+    table[align="center"] > caption[align="left"]:dir(ltr) {
+      margin-inline-end: 0;
+    }
+    table[align="center"] > caption[align="left"]:dir(rtl) {
+      margin-inline-start: 0;
+    }
+
+    table[align="center"] > caption[align="right"]:dir(ltr) {
+      margin-inline-start: 0;
+    }
+    table[align="center"] > caption[align="right"]:dir(rtl) {
+      margin-inline-end: 0;
+    }
+
+    tr {
+      display: table-row;
+      vertical-align: inherit;
+    }
+
+    col {
+      display: table-column;
+    }
+
+    colgroup {
+      display: table-column-group;
+    }
+
+    tbody {
+      display: table-row-group;
+      vertical-align: middle;
+    }
+
+    thead {
+      display: table-header-group;
+      vertical-align: middle;
+    }
+
+    tfoot {
+      display: table-footer-group;
+      vertical-align: middle;
+    }
+
+    /* for XHTML tables without tbody */
+    table > tr {
+      vertical-align: middle;
+    }
+
+    td {
+      display: table-cell;
+      vertical-align: inherit;
+      text-align: unset;
+      padding: 1px;
+    }
+
+    th {
+      display: table-cell;
+      vertical-align: inherit;
+      font-weight: bold;
+      padding: 1px;
+    }
+
+    table[bordercolor] > tbody,
+    table[bordercolor] > thead,
+    table[bordercolor] > tfoot,
+    table[bordercolor] > col,
+    table[bordercolor] > colgroup,
+    table[bordercolor] > tr,
+    table[bordercolor] > * > tr,
+    table[bordercolor]  > tr > td,
+    table[bordercolor] > * > tr > td,
+    table[bordercolor]  > tr > th,
+    table[bordercolor] > * > tr > th {
+      border-color: inherit;
+    }
+
+    /* inlines */
+
+    q:before {
+      content: open-quote;
+    }
+
+    q:after {
+      content: close-quote;
+    }
+
+    b, strong {
+      font-weight: bolder;
+    }
+
+    i, cite, em, var, dfn {
+      font-style: italic;
+    }
+
+    u, ins {
+      text-decoration: underline;
+    }
+
+    s, strike, del {
+      text-decoration: line-through;
+    }
+
+    big {
+      font-size: larger;
+    }
+
+    small {
+      font-size: smaller;
+    }
+
+    sub {
+      vertical-align: sub;
+      font-size: smaller;
+    }
+
+    sup {
+      vertical-align: super;
+      font-size: smaller;
+    }
+
+    nobr {
+      white-space: nowrap;
+    }
+
+    mark {
+      background: yellow;
+      color: black;
+    }
+
+    /* titles */
+    abbr[title], acronym[title] {
+      text-decoration: dotted underline;
+    }
+
+    /* lists */
+
+    ul, menu, dir {
+      display: block;
+      list-style-type: disc;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      padding-left: 30px;
+    }
+
+    menu[type="context"] {
+      display: none !important;
+    }
+
+    ul, ol, menu {
+      counter-reset: list-itrem;
+    }
+
+    ol {
+      display: block;
+      list-style-type: decimal;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      padding-left: 30px;
+    }
+
+    li {
+      display: list-itrem;
+      text-align: match-parent;
+    }
+
+    /* leafs */
+
+    /* <hr> noshade and color attributes are handled completely by
+     * the nsHTMLHRElement attribute mapping code
+     */
+    hr {
+      display: block;
+      border: none;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+      box-sizing: content-box;
+      border-bottom: 1px solid $color-gray-300;
+      border-bottom-color: var(--color-gray-300);
+    }
+
+    hr[size="1"] {
+      border-style: solid none none none;
+    }
+
+    img[usemap], object[usemap] {
+      color: blue;
+    }
+
+    link {
+      display: none;
+    }
+
+    iframe {
+      border: none;
+      max-width: 100%;
+    }
+
+    noframes {
+      display: none;
+    }
+
+    spacer {
+      position: static ! important;
+      float: none ! important;
+    }
+
+    canvas {
+      user-select: none;
+    }
+
+    /* hidden elements */
+    base, basefont, datalist, head, meta, script, style, title,
+    noembed, param, template {
+       display: none;
+    }
+
+    area {
+      /* Don't give it frames other than its imageframe */
+      display: none ! important;
+    }
+
+    /* media elements */
+    video {
+      object-fit: contain;
+    }
+
+    audio:not([controls]) {
+      display: none;
+    }
+
+    audio[controls] {
+      /* This ensures that intrinsic sizing can reliably shrinkwrap our
+          controls (which are also always horizontal) and produce a
+          reasonable intrinsic size from them. */
+      writing-mode: horizontal-tb !important;
+    }
+
+    video > .caption-box {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+
+    dialog {
+      position: absolute;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      color: black;
+      margin: auto;
+      border-width: initial;
+      border-style: solid;
+      border-color: initial;
+      border-image: initial;
+      padding: 1rem;
+      background: white;
+    }
+
+    dialog:not([open]) {
+      display: none;
+    }
+
+    marquee {
+      display: inline-block;
+      vertical-align: text-bottom;
+      text-align: start;
+    }
+
+    marquee[direction="up"], marquee[direction="down"] {
+      block-size: 200px;
+    }
+  }
+}

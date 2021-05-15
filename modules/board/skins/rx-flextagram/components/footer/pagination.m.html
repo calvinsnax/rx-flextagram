@@ -1,0 +1,30 @@
+<load target="pagination.scss" vars="$rxpFlexTheme->variables" />
+
+<ul class="app-pagination" cond="$document_list || $notice_list">
+  {@
+    $prev_page = max($page-1, 1);
+    $next_page = min($page+1, $page_navigation->last_page);
+  }
+
+  <li class="app-pagination-first">
+    <a cond="$page > $prev_page" href="{getUrl('page','','document_srl','','division',$division,'last_division',$last_division)}">
+      처음
+    </a>
+  </li>
+
+  <li class="app-pagination-prev">
+    <a cond="$page > $prev_page" href="{getUrl('page', $prev_page, 'document_srl','','division',$division,'last_division',$last_division)}">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+    <span>이전</span>
+  </a>
+  </li>
+
+  <li class="app-pagination__page-no" cond="$page > $prev_page">{$page}</li>
+
+  <li class="app-pagination-next">
+    <a cond="$page < $next_page" href="{getUrl('page', $next_page, 'document_srl','','division',$division,'last_division',$last_division)}">
+      <span>다음</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </a>
+  </li>
+</ul>

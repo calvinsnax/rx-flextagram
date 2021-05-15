@@ -1,0 +1,43 @@
+.app-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 3rem;
+  z-index: 10000;
+  padding: 1rem 1.25rem;
+
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 5rem;
+
+  background-color: $color-primary;
+  box-shadow: rgba(black, 0.2) 0 4px 20px;
+
+  transform: translateX(-50%);
+
+  &.v-enter-active,
+  &.v-leave-active {
+    transition: opacity 0.3s, transform 0.3s ease;
+  }
+  &.v-enter,
+  &.v-leave-active {
+    opacity: 0;
+    transform: translate(-50%, 0.5rem);
+  }
+}
+
+.app-toast {
+  &.success {
+    background-color: $color-success;
+  }
+  &.info {
+    background-color: $color-info;
+  }
+  &.warn {
+    background-color: $color-warning;
+  }
+  &.danger {
+    background-color: $color-danger;
+  }
+}

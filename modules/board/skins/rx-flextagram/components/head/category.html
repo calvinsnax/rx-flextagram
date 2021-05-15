@@ -1,0 +1,43 @@
+<load target="category.scss" vars="$rxpFlexTheme->variables" />
+
+{@ $cate_list = array(); $current_key = null; }
+<!--@foreach($category_list as $key=>$val)-->
+  <!--@if(!$val->depth)-->
+    {@
+      $cate_list[$key] = $val;
+      $cate_list[$key]->children = array();
+      $current_key = $key;
+    }
+  <!--@elseif($current_key)-->
+    {@ $cate_list[$current_key]->children[] = $val }
+  <!--@end-->
+<!--@end-->
+
+<ul class="app-head-category" cond="$module_info->use_category === 'Y'">
+  <li class="active"|cond="!$category">
+    <a href="{getUrl('category', '', 'document_srl', '', 'page', '')}">{$lang->total}</a>
+  </li>
+
+  <li loop="$cate_list=>$key,$val" class="active"|cond="$category==$val->category_srl">
+    <a href="{getUrl('category', $val->category_srl,'document_srl','', 'page', '')}">
+      {$val->title} 
+      <!-- <block cond="$val->document_count">
+        ({$val->document_count})
+      </block> -->
+      <ion-icon name="chevron-down-outline" class="tw-text-gray-700 tw-ml-2" cond="count($val->children)"></ion-icon>
+    </a>
+
+    <div class="app-category-child" cond="count($val->children)">
+      <ul>
+        <li loop="$val->children=>$idx,$item" class="active"|cond="$category==$item->category_srl">
+          <a href="{getUrl('category', $item->category_srl,'document_srl','', 'page', '')}">
+            <span style="color: {$val->children[$item->category_srl]->color};">{$item->title}</span>
+            <!-- <span cond="$item->document_count" class="app-document-count">
+              ({$item->document_count})
+            </span> -->
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>

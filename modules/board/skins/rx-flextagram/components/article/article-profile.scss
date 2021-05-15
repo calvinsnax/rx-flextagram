@@ -1,0 +1,45 @@
+.app-article-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &__image {
+    flex: 0 0 auto;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+  
+    & > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__body {
+    padding-left: 1rem;
+
+    .app-nickname {
+      display: inline-flex;
+      align-items: center;
+      color: $color-gray-900;
+      color: var(--color-gray-900);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 0.25rem;
+    }
+    .app-regdate {
+      color: $color-gray-500;
+      color: var(--color-gray-500);
+      font-size: 0.75rem;
+    }
+  }
+}

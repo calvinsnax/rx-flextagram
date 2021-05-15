@@ -1,0 +1,162 @@
+.app-write {
+  &__title {
+    margin-top: 0;
+    margin-bottom: 32px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02rem;
+  }
+
+  &__head-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    & > .app-write__head-group-item {
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .app-select {
+      @media (max-width: $mobile-w) {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-head {
+    margin-bottom: 2rem;
+
+    .app-write-head__input {
+      width: 100%;
+      padding: 0.5em 0;
+      margin: 0;
+
+      color: $color-black;
+      font-size: 2rem;
+      font-weight: 700;
+
+      outline: none;
+      border: none;
+      border-bottom: 1px solid $color-gray-300;
+      background-color: transparent;
+      resize: none;
+      border-radius: none;
+
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      transition: .2s ease;
+
+      &:hover {
+        border-bottom-color: $color-gray-400;
+      }
+      &:focus {
+        border-bottom-color: $color-black;
+        border-width: 2px;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $color-gray-500;
+        font-size: 1rem;
+      }
+      &:-ms-input-placeholder {
+        color: $color-gray-500;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.app-write__input-category {
+  margin-bottom: 1rem;
+}
+
+.app-write-option {
+  list-style-type: none;
+  padding: 0;
+  margin: 2em 0 2rem;
+
+  & > li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    font-size: 14px;
+
+    & > label {
+      flex: 0 0 auto;
+      min-width: 100px;
+      margin-right: 1rem;
+
+      @media (max-width: $mobile-w) {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        color: $color-gray-600;
+      }
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .app-write-option__item {
+      margin-right: 8px;
+
+      @media (max-width: $mobile-w) {
+        flex: 1;
+
+        input[type="text"] {
+          width: 100%;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.app-write__editor {
+  color: black;
+}
+
+
+// Color Picker Input
+.app-colorpicker {
+  width: 100px;
+  height: 34px;
+  padding-left: 38px !important;
+  padding-right: 6px;
+  background-color: $color-background;
+  border-radius: 4px;
+
+  outline: none;
+  border: 1px solid $color-gray-300;
+
+  color: $color-black;
+  
+  transition: .2s ease;
+
+  &::-webkit-input-placeholder {
+    color: $color-gray-600;
+  }
+  &:-ms-input-placeholder {
+    color: $color-gray-600;
+  }
+  
+  &:hover {
+    border-color: $color-gray-500;
+    background-color: $color-gray-100;
+  }
+}
+
+.minicolors-swatch {
+  border-color: $color-gray-300 !important;
+}

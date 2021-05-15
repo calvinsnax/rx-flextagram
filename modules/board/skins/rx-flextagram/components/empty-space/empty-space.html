@@ -1,0 +1,14 @@
+<block cond="!$document_list && !$notice_list">
+  <load target="empty-space.scss" vars="$rxpFlexTheme->variables" />
+  
+  <div class="app-empty-space">
+    <ion-icon name="newspaper-outline"></ion-icon>
+    <h1>{$lang->no_documents}</h1>
+    <p>첫 게시물의 주인공이 되어보세요.</p>
+  
+    <a cond="$grant->write_document" href="{getUrl('act','dispBoardWrite','document_srl','')}" class="app-button app-primary app-plain">
+      <ion-icon name="create-outline"></ion-icon>
+      <span>{$lang->cmd_write}</span>
+    </a>
+  </div>
+</block>

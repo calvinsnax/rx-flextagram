@@ -1,0 +1,141 @@
+@mixin color-scheme-light {
+  --color-primary: #{$color-primary};
+  --color-secondary: #ff3a4e;
+  --color-success: #13ce66;
+  --color-warning: #f7ba2a;
+  --color-danger: #ff5a57;
+  --color-info: #2957ff;
+  --color-white: white;
+  --color-black: black;
+  --color-gray-050: #f8f9fa;
+  --color-gray-100: #f1f3f5;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #868e96;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
+  --color-background: white;
+  --color-text-primary: white;
+}
+
+@mixin color-scheme-dark {
+  --color-white: black;
+  --color-black: white;
+  --color-gray-050: #21252a;
+  --color-gray-100: #262b30;
+  --color-gray-200: #343a40;
+  --color-gray-300: #383f45;
+  --color-gray-400: #495057;
+  --color-gray-500: #868e96;
+  --color-gray-600: #adb5bd;
+  --color-gray-700: #ced4da;
+  --color-gray-800: #dee2e6;
+  --color-gray-900: #e9ecef;
+  --color-background: #17181c;
+}
+
+
+
+:root {
+  @include color-scheme-light();
+}
+
+
+.color_scheme_dark {
+  @include color-scheme-dark();
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include color-scheme-dark();
+  }
+
+  .color_scheme_light {
+    @include color_scheme_light();
+  }
+}
+
+html {
+  overflow-x: hidden;
+}
+body {
+  font-size: 16px;
+  color: $color-gray-900;
+  color: var(--color-gray-900);
+  background-color: $color-background;
+  background-color: var(--color-background);
+  transition: color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+html {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+table,
+input,
+textarea,
+select,
+button {
+  font-family: $font-family;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+ion-icon {
+  vertical-align: middle;
+}
+
+.btn {
+  height: 26px !important;
+}
+
+.app-container {
+  width: 100%;
+  max-width: $base-container;
+  padding-left: $base-padding;
+  padding-right: $base-padding;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @media (max-width: $mobile-w) {
+    padding-left: $base-padding-m;
+    padding-right: $base-padding-m;
+  }
+
+  zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+.app-content > * {
+  box-sizing: content-box;
+}
+
+.app--overflow-hidden {
+  overflow: hidden;
+}

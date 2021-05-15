@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">RX-FLEXTAGRAM</title>
+    <description xml:lang="ko">Rhymix Flextagram 레이아웃 전용 게시판 스킨 (다른 레이아웃에서는 작동하지 않습니다.)</description>
+    <version>1.0.0</version>
+    <date>2021-05-16</date>
+    <author email_address="hello@calvinsnax.com" link="https://calvinsnax.com/">
+      <name xml:lang="ko">C Λ L V I N - S N Λ X</name>
+    </author>
+    <license>C Λ L V I N - S N Λ X</license>
+
+    <extra_vars>
+      <group>
+        <title xml:lang="ko">기본 설정</title>
+
+         <var name="board_color_scheme" type="select">
+          <title xml:lang="ko">컬러 모드</title>
+          <description xml:lang="ko">다크 모드 여부를 정하는 기준입니다. '레이아웃에 따라' 옵션은 동일한 다크모드 기술을 적용한 테마/레이아웃에서만 사용할 수 있습니다. (주의: 사용하는 레이아웃의 컬러 모드가 '사용자 지정(기본)'일 때만 해당 옵션이 작동합니다. 사용자 지정이 아닌 경우 게시판 스킨의 컬러 모드도 동일한 모드로 맞춰주세요.)</description>
+
+          <options value="">
+            <title xml:lang="ko">밝은 테마(기본)</title>
+          </options>
+          <options value="dark">
+            <title xml:lang="ko">어두운 테마</title>
+          </options>
+          <options value="auto">
+            <title xml:lang="ko">레이아웃에 따라</title>
+          </options>
+        </var>
+
+        <var name="browser_title_visible" type="select">
+          <title xml:lang="ko">브라우저 제목</title>
+
+          <options value="N">
+            <title xml:lang="ko">표시안함</title>
+          </options>
+          <options value="">
+            <title xml:lang="ko">표시함(기본)</title>
+          </options>
+        </var>
+
+      <group>
+        <title xml:lang="ko">공통 - 목록 설정</title>
+
+        <var name="list_title_limit" type="text">
+          <title xml:lang="ko">제목 글자 수 제한</title>
+          <description xml:lang="ko">입력하지 않으면 자르지 않습니다.</description>
+        </var>
+      </group>
+
+      <group>
+        <title xml:lang="ko">본문 - 기본 설정</title>
+        <var name="writeform_default_content" type="textarea">
+          <title xml:lang="ko">글 양식</title>
+          <description xml:lang="ko">에디터 내부에서 미리 표시될 내용을 입력할 수 있습니다. (HTML 사용 가능)</description>
+        </var>
+
+        <var name="article_file" type="radio">
+          <title xml:lang="ko">첨부 파일 출력</title>
+          <description xml:lang="ko">본문에서 첨부 파일의 출력 여부를 결정하세요.</description>
+
+          <options value="">
+            <title xml:lang="ko">표시 (기본)</title>
+          </options>
+          <options value="N">
+            <title xml:lang="ko">표시 안함</title>
+          </options>
+        </var>
+
+        <var name="article_signature" type="radio">
+          <title xml:lang="ko">서명 출력</title>
+          <description xml:lang="ko">본문 하단에 서명을 출력합니다.</description>
+
+          <options value="">
+            <title xml:lang="ko">표시 (기본)</title>
+          </options>
+          <options value="N">
+            <title xml:lang="ko">표시 안함</title>
+          </options>
+        </var>
+      </group>
+
+      <group>
+        <title xml:lang="ko">본문 - 광고</title>
+
+        <var name="article_top_ad" type="textarea">
+          <title xml:lang="ko">본문 상단 광고</title>
+          <description xml:lang="ko">본문 상단에 들어가는 광고 코드를 입력할 수 있습니다.</description>
+        </var>
+        <var name="article_bottom_ad" type="textarea">
+          <title xml:lang="ko">본문 하단 광고</title>
+          <description xml:lang="ko">본문 하단에 들어가는 광고 코드를 입력할 수 있습니다.</description>
+        </var>
+        <var name="comment_top_ad" type="textarea">
+          <title xml:lang="ko">댓글 상단 광고</title>
+          <description xml:lang="ko">댓글 상단에 들어가는 광고 코드를 입력할 수 있습니다.</description>
+        </var>
+        <var name="comment_bottom_ad" type="textarea">
+          <title xml:lang="ko">댓글 하단 광고</title>
+          <description xml:lang="ko">댓글 하단에 들어가는 광고 코드를 입력할 수 있습니다.</description>
+        </var>
+      </group>
+
+      <group>
+        <title xml:lang="ko">본문 - 댓글</title>
+        
+        <var name="comment_write_type" type="radio">
+          <title xml:lang="ko">댓글 에디터 타입</title>
+          <description xml:lang="ko">댓글 에디터로 위지윅 에디터를 사용할 수 있습니다.</description>
+
+          <options value="">
+            <title xml:lang="ko">Textarea (기본)</title>
+          </options>
+          <options value="wysiwyg">
+            <title xml:lang="ko">Wysiwyg 에디터</title>
+          </options>
+        </var>
+
+        <var name="comment_content_overflow" type="radio">
+          <title xml:lang="ko">댓글 내용영역 높이제한</title>
+          <description xml:lang="ko">댓글 내용이 일정 수준 이상 길어질 경우 스크롤이 생깁니다.</description>
+
+          <options value="">
+            <title xml:lang="ko">사용안함 (기본)</title>
+          </options>
+          <options value="Y">
+            <title xml:lang="ko">사용</title>
+          </options>
+        </var>
+      </group>
+    </extra_vars>
+</skin>

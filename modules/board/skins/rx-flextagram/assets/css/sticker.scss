@@ -1,0 +1,112 @@
+.app-sticker-comment,
+.app-sticker-recomment {
+  position: relative;
+}
+
+.app-sticker-closed {
+	display: none;
+}
+
+.app-sticker {
+  position: absolute;
+  z-index: 10;
+
+	width: 100%;
+	min-height: 170px;
+  max-height: 260px;
+  
+  padding: 0;
+  margin: 0.5rem auto 0 auto;
+  line-height: 0;
+  overflow: hidden;
+  
+  border: 1px solid $color-gray-300;
+  background-color: $color-background;
+  border-radius: 6px;
+  box-shadow: rgba(black, 0.1) 0 4px 16px;
+
+  .app-sticker-header {
+    box-sizing: border-box;
+    
+    .app-sticker-pack {
+      display: flex;
+      flex-grow: 1;
+
+      padding: 0;
+      margin: 0;
+      & > li {
+        display: inline-block;
+        border-right: 1px solid $color-gray-300;
+        &.sticker_icon{
+          display: block;
+          font-size: 0.875rem;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          line-height: 40px;
+          color: $color-black;
+
+          transition: 250ms;
+          a{
+            display: block;
+            text-decoration: none;
+            color: $color-black;
+
+            transition: 250ms;
+          }
+          &:hover {
+            background-color: $color-gray-200;
+            a {
+              color: $color-primary;
+            }
+          }
+        }
+        &.sticker_image {
+          img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  
+  .app-sticker-body {
+    border-top: 1px solid $color-gray-300;
+    padding: 0.5rem;
+    overflow-y: auto;
+    min-height: 160px;
+    max-height: 200px;
+
+    & > ul {
+      padding: 0;
+      margin: 0;
+      & > li {
+        display: inline-block;
+        margin: 5px;
+
+        transition: 250ms;
+
+        &:hover {
+          background-color: $color-gray-200;
+          border-radius: 6px;
+          transform: scale(1.1);
+          box-shadow: rgba(black, 0.1) 0 4px 16px
+        }
+        & > a {
+          display: inline-block;
+          background-size: cover;
+          background-position: 50% 50%;
+          width: 80px;
+          height: 80px;
+          border-radius: 6px;
+          @media (max-width: 340px) {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,231 @@
+$header-height: 52px;
+
+.app-sidebar {
+  position: fixed;
+  top: $header-height;
+  right: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(black, 0.5);
+
+  transition: 0.3s ease;
+
+  @media (max-width: $mobile-w) {
+    top: 0;
+  }
+
+  &__content {
+    position: relative;
+    flex: 0 0 auto;
+    max-width: 240px;
+    width: 100%;
+    height: 100%;
+
+    background-color: $color-background;
+    background-color: var(--color-background);
+    box-sizing: border-box;
+
+    // @media (max-width: $mobile-w) {
+    //   // max-height: calc(100% - (#{$header-height} * 2));
+    //   &::after {
+    //     content: '';
+    //     position: absolute;
+    //     right: 0;
+    //     bottom: 0;
+    //     width: $border-radius-4;
+    //     height: $border-radius-4;
+    //     background-color: $color-background;
+    //     background-color: var(--color-background);
+    //     margin-bottom: -$border-radius-4;
+    //   }
+    // }
+  }
+
+  &__container {
+    position: relative;
+    height: 100%;
+    max-height: calc(100% - #{$header-height});
+    padding: 1rem 0;
+    overflow: auto;
+  }
+
+  &-bg {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+}
+
+
+// 비활성화 상태
+// ──────────────────────────────────────────────────────────────────────────
+.app-sidebar {
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+
+  .app-sidebar__content {
+    transform: translateX(100%);
+    transition: transform 0.3s ease, background-color 0.3s ease-in-out;
+  }
+
+  .app-sidebar__close {
+    transform: scale(0.8) rotate(-45deg);
+    transition: 0.5s ease;
+  }
+
+  .app-sidebar-nav {
+    transform: translateY(-1rem);
+    transition: 0.6s ease;
+  }
+}
+
+
+// 활성화 상태
+// ──────────────────────────────────────────────────────────────────────────
+.app-sidebar.active {
+  opacity: 1;
+  visibility: visible;
+  user-select: initial;
+  pointer-events: initial;
+
+  .app-sidebar__content {
+    transform: translateX(0);
+  }
+
+  .app-sidebar__close {
+    transform: scale(1);
+  }
+
+  .app-sidebar-nav {
+    transform: translateY(0);
+  }
+}
+
+
+// 내부 요소
+// ──────────────────────────────────────────────────────────────────────────
+
+.app-sidebar-close {
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  
+  color: $color-gray-500;
+  color: var(--color-gray-500);
+  font-size: 1.75rem;
+
+  background-color: transparent;
+  border-radius: $border-radius-2;
+  border: none;
+  outline: none;
+
+  transition: 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.app-sidebar__divider {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: $color-gray-200;
+  border-top-color: var(--color-gray-200);
+  margin: 1rem 0;
+
+  transition: border-color 0.3s ease-in-out;
+
+  .color_scheme_dark & {
+    border-top-color: $color-gray-100;
+    border-top-color: var(--color-gray-100);
+  }
+}
+
+.app-sidebar-auth {
+  padding: 0 1rem;
+
+  .app-login {
+    display: block;
+    color: $color-gray-900;
+    color: var(--color-gray-900);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+  }
+  .app-signup {
+    color: $color-primary;
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+}
+
+.app-sidebar-profile {
+  display: block;
+  padding: 0 1rem;
+
+  &__image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+
+    border-radius: 100%;
+    background-color: $color-gray-200;
+    background-color: var(--color-gray-200);
+    border: 1px solid $color-gray-300;
+    border-color: var(--color-gray-300);
+    overflow: hidden;
+
+    transition: border-color .3s ease-in-out;
+
+    & > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    & > i, ion-icon {
+      color: $color-gray-600;
+      color: var(--color-gray-600);
+      font-size: 1.5rem;
+    }
+  }
+
+  &__body {
+    padding-top: 1rem;
+  }
+
+  &__nickname {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+}

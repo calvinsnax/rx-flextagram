@@ -1,0 +1,103 @@
+$mobile: 1024px;
+
+ul.app-image-title-content {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+  margin: 0;
+  overflow: hidden;
+
+  @media (max-width: $mobile) {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  & > li {
+    & > a {
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
+
+ul.app-image-title-content {
+  // 썸네일
+  .app-thumbnail {
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    
+    & > img {
+      display: block;
+      width: 100%;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .app-thumbnail-empty {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-bottom: 1rem;
+      
+      color: var(--color-text-primary);
+      font-size: 1.25rem;
+      background-color: var(--color-primary);
+
+      border-radius: 100%;
+    }
+  }
+
+  // 타이틀
+  .app-title {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+
+    .app-browser-title {
+      margin-right: 0.25rem;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    .app-category {
+      margin-right: 0.25rem;
+      color: var(--color-text-gray-600);
+      font-weight: 500;
+    }
+
+    .app-title-text {
+      margin-right: 0.25rem;
+    }
+
+    .app-comment-count {
+      color: var(--color-primary);
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+  }
+
+  .app-content {
+    margin-bottom: 0.25rem;
+    color: var(--color-gray-600);
+    font-size: 0.75rem;
+  }
+
+  // 메타
+  .app-meta {
+    margin-top: 0.25rem;
+    color: var(--color-gray-600);
+    font-size: 0.75rem;
+    
+    .app-meta-item {
+      margin-right: 0.5rem;
+
+      .app-heart-icon {
+        color: var(--color-danger);
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{@
+    $header_url = getUrl('');
+
+    if($layoutConfig['logo_url']):
+        $header_url = $layoutConfig['logo_url'];
+    endif;
+}
+
+<a class="app-header-logo" href="{$header_url}">
+    <!--@if($layoutConfig['logo_img'])-->
+        <!--@if($layoutConfig['logo_img_dark'])-->
+            <!-- prettier-ignore -->
+            <img class="app-hidden--light" src="{$layoutConfig['logo_img_dark']}" alt="{$layoutConfig['logo_text']}"|cond="$layoutConfig['logo_text']">
+        <!--@endif-->
+        
+        <!-- prettier-ignore -->
+        <img class="app-hidden--dark"|cond="$layoutConfig['logo_img_dark']" src="{$layoutConfig['logo_img']}" alt="{$layoutConfig['logo_text']}"|cond="$layoutConfig['logo_text']">
+    <!--@else if($layoutConfig['logo_text'])-->
+        {$layoutConfig['logo_text']}
+    <!--@else-->
+        <span>FLEX</span>
+    <!--@endif-->
+</a>

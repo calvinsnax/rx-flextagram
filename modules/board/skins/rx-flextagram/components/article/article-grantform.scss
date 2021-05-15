@@ -1,0 +1,34 @@
+.app-article-grantform {
+  padding: 1em 0;
+  text-align: center;
+
+  ion-icon {
+    color: $color-gray-600;
+    color: var(--color-gray-600);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+  p {
+    color: $color-gray-600;
+    color: var(--color-gray-600);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0 0 2rem;
+  }
+
+  form {
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+
+    input[type="password"] {
+      margin-bottom: 0.75rem;
+    }
+  }
+}

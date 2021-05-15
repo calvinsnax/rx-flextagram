@@ -1,0 +1,43 @@
+<load target="assets/css/comment/comment-form.scss" vars="$rxpFlexTheme->variables" />
+<include target="components/base/base-header.html" />
+
+<div class="app-comment-form">
+  <div>
+    <h1 class="app-comment-form__title">댓글 수정</h1>
+  
+    <form action="./" method="post" onsubmit="return procFilter(this, insert_comment)">
+      <input type="hidden" name="mid" value="{$mid}" />
+      <input type="hidden" name="document_srl" value="{$oComment->get('document_srl')}" />
+      <input type="hidden" name="comment_srl" value="{$oComment->get('comment_srl')}" />
+      <input type="hidden" name="parent_srl" value="{$oComment->get('parent_srl')}" />
+      <input type="hidden" name="content" value="{htmlspecialchars($oComment->get('content'))}" />
+  
+      <div class="app-comment-form__author" cond="!$is_logged">
+        <input type="text" name="nick_name" placeholder="{$lang->writer}" class="app-input" style="width: 100px" />
+        <input type="password" name="password" placeholder="{$lang->password}" class="app-input" style="width: 100px" />
+      </div>
+
+      <div class="app-comment-form__editor">
+        {$oComment->getEditor()}
+      </div>
+  
+      <div class="app-comment-form__footer">
+        <div class="app-comment-form__footer-item" cond="$mi->secret=='Y'">
+          <input type="checkbox" name="is_secret" value="Y" id="is_secret" class="app-toggle" />
+          <label for="is_secret">비밀</label>
+        </div>
+  
+        <div class="app-comment-form__footer-item" cond="$is_logged && $mi->comment_notify_checkbox == 'Y'">
+          <input type="checkbox" name="notify_message" value="Y" id="notify_message" class="app-toggle" />
+          <label for="notify_message">{$lang->notify}</label>
+        </div>
+        
+        <div class="tw-flex-1"></div>
+  
+        <button type="submit" class="app-button app-primary">{$lang->cmd_registration}</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<include target="components/base/base-footer.html" />

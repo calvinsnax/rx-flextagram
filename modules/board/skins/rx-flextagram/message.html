@@ -1,0 +1,12 @@
+<include target="_config.html" />
+<include target="_header.html" />
+
+<div class="context_message">
+  <h3>{$message}</h3>
+  <div class="ed text-center">
+    <a cond="!$is_logged" class="ed button button-primary button-rounded margin-right-xsmall" href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a>
+    <button type="button" class="ed button button-default button-rounded" onclick="history.back()">{$lang->cmd_back}</button>
+  </div>
+</div>
+
+<include target="_footer.html" />

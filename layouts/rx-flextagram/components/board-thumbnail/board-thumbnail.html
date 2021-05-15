@@ -1,0 +1,6 @@
+<!--@if($is_board == 'Y' && !Mobile::isFromMobilePhone() && $layoutConfig['board_thumbnail'] == 'Y' && $oDocument && $oDocument->getThumbnail(1200, 600))-->
+<load target="board-thumbnail.scss" vars="RxpFlexTheme::$variables" />
+
+<div class="app-board-thumbnail" style="background-image: url('{$oDocument->getThumbnail(1200, 600)}');">
+</div>
+<!--@end-->

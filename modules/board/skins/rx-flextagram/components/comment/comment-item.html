@@ -1,0 +1,68 @@
+<li loop="$oDocument->getComments()=>$key,$comment"  id="comment_{$comment->comment_srl}" class="app-comment-item app-clearfix <!--@if($comment->get('depth'))-->app-comment-item__depth<!--@end-->">
+
+  <block cond="$comment->get('depth')">
+    {@
+      $oComment = &getModel('comment');
+      $comment_parent = $oComment->getComment($comment->parent_srl);
+    }
+  </block>
+
+  {@ // 프로필 이미지 }
+  <div class="app-comment-item__profile">
+    <img cond="$comment->getProfileImage()" src="{$comment->getProfileImage()}" alt="{$comment->getNickName()}" />
+    <img cond="!$comment->getProfileImage()" src="../../assets/images/ic_profile_default.png" alt="{$comment->getNickName()}" />
+  </div>
+  
+  {@ // 바디 영역 }
+  <div class="app-comment-item__body">
+    {@ // 댓글 아이템 해더 }
+    <include target="comment-item-head.html" />
+    
+    {@ // 첨부파일 리스트 }
+    <div cond="$comment->hasUploadedFiles()">
+      <ul id="ed-files" class="ed list margin-vertical-xsmall" style="display: none">
+        <li loop="$comment->getUploadedFiles()=>$key,$file">
+          <a href="{getUrl('')}{$file->download_url}" class="ed link-muted">
+            {$file->source_filename}
+            <span>({FileHandler::filesize($file->file_size)})</span>
+            <span class="fileSize">(다운 횟수: {number_format($file->download_count)})</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- <script>
+        jQuery(document).ready(function($) {
+          $(function() {
+            $("#ed-toggle-files").click(function() {
+              $("#ed-files").toggle();
+            });
+          });
+        });
+      </script> -->
+    </div>
+
+    {@
+      $comment_content_overflow = "";
+
+      if($module_info->comment_content_overflow === "Y")
+        $comment_content_overflow = " app-comment-item__content-scroll";
+    }
+
+    <div class="app-comment-item__content{$comment_content_overflow}">
+      <!--@if($comment->status == RX_STATUS_DELETED)-->
+      <div class="xe_content deleted">{$lang->msg_deleted_comment}</div>
+      <!--@elseif($comment->status == RX_STATUS_DELETED_BY_ADMIN)-->
+      <div class="xe_content deleted deleted_by_admin">{$lang->msg_admin_deleted_comment}</div>
+      <!--@elseif(!$comment->isAccessible())-->
+      {@ // 비밀번호 입력 }
+      <include target="comment-grantform.html" />
+      <!--@else-->
+      {@ // 댓글 본문 }
+      <div>{$comment->getContent(false)}</div>
+      <!--@end-->
+    </div>
+
+    {@ // 댓글 액션 }
+    <include target="comment-item-actions" />
+  </div>
+</li>

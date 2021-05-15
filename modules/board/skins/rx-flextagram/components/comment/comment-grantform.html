@@ -1,0 +1,14 @@
+<form action="./" method="get" onsubmit="return procFilter(this, input_password)" class="tw-pt-2" style="max-width: 200px; width: 100%">
+  <h5 class="tw-text-xs tw-font-bold tw-mb-2">{$lang->msg_is_secret}</h5>
+  <p class="tw-text-xs tw-text-gray-700 tw-mb-4">{$lang->msg_input_password}</p>
+
+  <input type="hidden" name="mid" value="{$module_infod}" />
+  <input type="hidden" name="page" value="{$page}" />
+  <input type="hidden" name="document_srl" value="{$comment->get('document_srl')}" />
+  <input type="hidden" name="comment_srl" value="{$comment->get('comment_srl')}" />
+  
+  <div class="app-flex-group">
+    <input type="password" name="password" id="cpw_{$comment->comment_srl}" class="app-input app-input-expand tw-mb-2" />
+    <input type="submit" class="app-button app-button-expand app-primary" value="{$lang->cmd_input}" />
+  </div>
+</form>

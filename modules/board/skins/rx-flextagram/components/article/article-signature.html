@@ -1,0 +1,32 @@
+<div cond="$module_info->article_signature !== 'N'" class="tw-flex tw-items-center tw-border tw-border-gray-300 tw-p-3 tw-rounded-lg">
+  {@ // 프로필 이미지 }
+  <div class="app-avatar">
+    <img cond="$oDocument->getProfileImage()" src="{$oDocument->getProfileImage()}" alt="Profile" />
+    <img cond="!$oDocument->getProfileImage()" src="../../assets/images/ic_profile_default.png" alt="Profile" />
+  </div>
+
+  <div class="tw-flex-1 tw-pl-2">
+    <div>
+      <a class="tw-font-bold tw-text-black tw-text-sm tw-mr-1 member_{$oDocument->get('member_srl')} author" href="#popup_menu_area" onclick="return false">{$oDocument->getNickName()}</a>
+
+      <span cond="$module_info->article_signature_point !== 'N'">
+        {@ 
+          $oPointModel = getModel('point');
+      
+          $oModuleModel = &getModel('module');
+          $config = $oModuleModel->getModuleConfig('point');
+          $point = $oPointModel->getPoint($oDocument->get('member_srl'));
+          $level = $oPointModel->getLevel($point, $config->level_step);
+          $nextpoint = $config->level_step[$level+1];
+          $prepoint = $config->level_step[$level];
+          $point_per = round(($point-$prepoint)/($nextpoint-$prepoint)*100);
+        }
+
+        <strong class="tw-text-primary">Level. {$level}</strong>
+        <span class="tw-text-gray-700">{$point}/{$nextpoint}</span>
+      </span>
+    </div>
+
+    <div cond="$oDocument->getSignature()" class="tw-pt-1 tw-text-sm">{$oDocument->getSignature()}</div>
+  </div>
+</div>

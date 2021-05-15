@@ -1,0 +1,20 @@
+<div class="app-tools">
+  <load target="tools.scss" vars="$rxpFlexTheme->variables" />
+    
+  <div class="app-tools__check-all" cond="$grant->manager">
+    <input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true });" id="check-all" class="app-checkbox" title="Check All" />
+    <label for="check-all"></label>
+  </div>
+
+  <a class="app-button app-sm" cond="$grant->manager" href="{getUrl('act','dispBoardAdminBoardInfo')}">
+    <ion-icon name="settings-outline"></ion-icon>
+  </a>
+
+  <div class="app-divider">
+  </div>
+
+  {@ // 글쓰기 버튼 }
+    <a cond="$grant->write_document" href="{getUrl('act','dispBoardWrite','document_srl','')}" class="app-write-button app-tooltip" title="{$lang->cmd_write}">
+      <ion-icon name="add-outline"></ion-icon>
+    </a>
+</div>

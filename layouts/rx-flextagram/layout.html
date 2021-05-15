@@ -1,0 +1,23 @@
+<include target="_import.html" />
+<include target="_init.html" />
+
+
+<section class="app-layout">
+    <include target="components/sidebar/sidebar.html" />
+    <include target="components/notification/notification.html" />
+    <include target="components/header/header.html" />
+    
+    <main class="app-main app-container">
+        <!--@if($layoutConfig['use_aside'] === Y)-->
+        <section class="app-content app-content--with-aside">{$content}</section>
+        <include target="components/aside/aside.html" />
+        <!--@else-->
+        <section class="app-content">{$content}</section>
+        <!--@endif-->
+    </main>
+    <include target="components/footer/footer.html" />
+</section>
+
+<include target="components/ie-message.html" />
+
+

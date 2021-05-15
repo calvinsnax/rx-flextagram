@@ -1,0 +1,69 @@
+<load target="login.scss" vars="RxpFlexTheme::$variables" />
+
+<form class="app-login" ruleset="@login" action="{getUrl()}" method="post">
+    <input type="hidden" name="success_return_url" value="{$referer_url}" />
+    <input type="hidden" name="act" value="procMemberLogin" />
+    <input type="hidden" name="xe_validator_id" value="layouts/rx-flextagram" />
+
+    {@ $identifier = RxpFlexTheme::loginIdentifier(); }
+    <input
+        class="app-input app-expand"
+        type="<!--@if(!is_array($identifier['field']) && $identifier['field'] === 'email_address')-->email<!--@else-->text<!--@end-->"
+        name="user_id"
+        placeholder="{$identifier['title']}"
+        required
+        tabindex="1"
+    />
+
+    <input class="app-input app-expand" type="password" name="password" placeholder="비밀번호" required tabindex="2" />
+
+    <div class="app-login-options">
+        <input
+            class="app-checkbox"
+            type="checkbox"
+            name="keep_signed"
+            id="keepid-optn"
+            data-lang="{$lang->about_keep_warning}"
+            value="Y"
+            tabindex="3"
+        />
+        <label for="keepid-optn">로그인 상태 유지</label>
+
+        <div class="app-login-options__divider"></div>
+
+        <!-- prettier-ignore -->
+        <a class="app-link" href="{getUrl('act','dispMemberFindAccount')}" tabindex="5">{$lang->cmd_find_member_account}</a>
+    </div>
+
+    <button type="submit" class="app-button app-expand app-primary app-plain" tabindex="4">로그인</button>
+</form>
+
+<div class="app-login__register-message">
+    <span>아직 회원이 아니신가요?</span>
+    <a href="{getUrl('act','dispMemberSignUpForm')}" class="app-link app-primary" tabindex="6">회원가입 하기</a>
+</div>
+
+<!--// 소셜XE 로그인  -->
+<!-- prettier-ignore -->
+<div cond="$layoutConfig['social_login']=='Y' && $oSocialxeModel && is_callable([$oSocialxeModel, 'snsAuthUrl'])" class="app-sociapp-login-group">
+    <!-- prettier-ignore -->
+    <a class="app-sociapp-google" href="{$oSocialxeModel->snsAuthUrl('google', 'login')}" cond="in_array('google',$layoutConfig['social_login_service'])">
+        <img src="../../../assets/images/ic_brand_google.svg" alt="ic_brand_google.svg" width="14" height="14">
+    </a>
+    <!-- prettier-ignore -->
+    <a class="app-sociapp-facebook" href="{$oSocialxeModel->snsAuthUrl('facebook', 'login')}" cond="in_array('facebook',$layoutConfig['social_login_service'])">
+        <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+    <!-- prettier-ignore -->
+    <a class="app-sociapp-kakao" href="{$oSocialxeModel->snsAuthUrl('kakao', 'login')}" cond="in_array('kakao',$layoutConfig['social_login_service'])">
+        <img src="../../../assets/images/ic_brand_kakao.svg" alt="ic_brand_kakao.svg" width="14" height="14">
+    </a>
+    <!-- prettier-ignore -->
+    <a class="app-sociapp-naver" href="{$oSocialxeModel->snsAuthUrl('naver', 'login')}" cond="in_array('naver',$layoutConfig['social_login_service'])">
+        <img src="../../../assets/images/ic_brand_naver.svg" alt="ic_brand_naver.svg" width="14" height="14">
+    </a>
+    <!-- prettier-ignore -->
+    <a class="app-sociapp-twitter" href="{$oSocialxeModel->snsAuthUrl('twitter', 'login')}" cond="in_array('twitter',$layoutConfig['social_login_service'])">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+</div>

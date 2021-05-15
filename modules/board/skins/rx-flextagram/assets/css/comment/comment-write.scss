@@ -1,0 +1,148 @@
+.app-comment-write {
+  border: 1px solid $color-gray-200;
+  border-color: var(--color-gray-200);
+  border-radius: 6px;
+  transition: border-color .2s ease;
+
+  &:focus-within {
+    border-color: $color-gray-600;
+    border-color: var(--color-gray-600);
+  }
+
+  &.app-comment-write__reply {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+
+    & > .app-input {
+      margin-right: 1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @media (max-width: $mobile-w) {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+      }
+    }
+  }
+
+  &__content {
+    font-size: 12px;
+
+    textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 0 1rem;
+      // margin-bottom: 10px;
+      outline: none;
+      border: none;
+      box-sizing: border-box;
+      color: $color-black;
+      color: var(--color-black);
+      background-color: rgba(0, 0, 0, 0);
+
+      font-size: 16px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding: 6px 1em 1rem;
+
+    .app-divider {
+      flex: 1;
+    }
+
+    & > .app-link {
+      color: $color-gray-600;
+      color: var(--color-gray-600);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-right: 1rem;
+      transition: color .2s ease;
+      &:hover {
+        color: $color-gray-700;
+        color: var(--color-gray-700);
+      }
+      &:active {
+        color: $color-black;
+        color: var(--color-black);
+      }
+    }
+
+    .app-comment-write__footer-item {
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+
+      .app-link {
+        line-height: 18px;
+      }
+    }
+
+    .app-comment-write-cancel,
+    .app-comment-write-submit {
+      cursor: pointer;
+      display: inline-block;
+      padding: 0.5em 1.25rem;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      transition: .2s ease;
+    }
+
+    .app-comment-write-cancel {
+      margin-right: 8px;
+      color: $color-gray-600;
+      color: var(--color-gray-600);
+      background-color: transparent;
+
+      &:hover {
+        background-color: $color-gray-100;
+        background-color: var(--color-gray-100);
+      }
+      &:active {
+        background-color: $color-gray-200;
+        background-color: var(--color-gray-200);
+      }
+    }
+
+    .app-comment-write-submit {
+      cursor: pointer;
+      display: inline-block;
+      padding: 0.5em 1.25rem;
+      color: $color-text-primary;
+      color: var(--color-text-primary);
+      font-size: 14px;
+      font-weight: 600;
+      background-color: $color-primary;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      transition: .2s ease;
+
+      &:hover {
+        background-color: mix(black, $color-primary, 10%);
+      }
+      &:active {
+        background-color: mix(black, $color-primary, 20%);
+      }
+    }
+    
+  }
+}

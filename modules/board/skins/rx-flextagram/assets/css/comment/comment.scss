@@ -1,0 +1,237 @@
+.app-comment {
+  margin-bottom: 3rem;
+  
+  .app-comment-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+}
+
+.app-comment-divider {
+  border-bottom: 1px solid $color-gray-200;
+  border-bottom-color: var(--color-gray-200);
+  margin-bottom: 3rem;
+}
+
+
+.app-comment-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-comment-item {
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  &__profile {
+    flex: 0 0 auto;
+
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    overflow: hidden;
+
+    @media (max-width: $mobile-w) {
+      width: 40px;
+      height: 40px;
+    }
+
+    & > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__body {
+    flex: 1;
+    padding-left: 1rem;
+    // overflow: hidden;
+  }
+
+  &__content {
+    &-scroll {
+      overflow-y: auto;
+      max-height: 400px;
+    }
+
+    img {
+      width: 100%;
+      border: 1px solid rgba(black, 0.1);
+      
+      .color_scheme_dark & {
+        border-bottom-color: rgba(white, 0.1);
+      }
+    }
+
+    a {
+      color: $color-primary;
+      word-break: break-all;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 12px;
+
+    color: $color-gray-600;
+    color: var(--color-gray-600);
+    font-size: 0.75rem;
+    ;
+    .app-divider {
+      flex: 1;
+    }
+    .app-comment-item__name {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+      margin-right: 0.5rem;
+      color: $color-black;
+      color: var(--color-black);
+      font-size: 14px;
+
+      & > a {
+        color: $color-black;
+        color: var(--color-black);
+        text-decoration: none;
+      }
+
+      ion-icon {
+        margin-left: 0.25rem;
+      }
+
+      &.app-is-owner,
+      &.app-is-owner > a {
+        color: $color-primary;
+      }
+    }
+    .app-comment-item__owner {
+      padding: 2px 6px;
+      margin-right: 4px;
+      color: $color-text-primary;
+      color: var(--color-text-primary);
+      font-size: 11px;
+      background-color: $color-primary;
+      border-radius: 999px;;
+    }
+  }
+}
+
+.app-comment-item__at {
+  margin-top: -6px;
+  margin-bottom: 12px;
+  
+  color: $color-gray-600;
+  color: var(--color-gray-600);
+  font-size: 0.75rem;
+
+  & > strong {
+    color: $color-black;
+    color: var(--color-black);
+    font-weight: 500;
+  }
+}
+
+.app-comment-item__link {
+  cursor: pointer;
+  color: $color-gray-600;
+  color: var(--color-gray-600);
+  text-decoration: none;
+  transition: .2s ease;
+  &:hover {
+    color: $color-gray-700;
+    color: var(--color-gray-700);
+    text-decoration: none !important;
+  }
+}
+
+.app-comment-item__file {
+  margin-right: 10px;
+}
+
+
+.app-comment-item__actions {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+
+  font-size: 0.875rem;
+
+  .app-comment-item__link {
+    margin-right: 1rem;
+  }
+}
+
+
+// 자식 댓글
+.app-comment-item__depth {
+  margin-top: -0.5rem;
+  margin-left: 40px;
+
+  @media (max-width: $mobile-w) {
+    margin-left: 8px;
+  }
+
+  .app-comment-item__profile {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.app-comment-vote {
+  display: flex;
+  align-items: center;
+
+  & > button {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    margin-right: 1rem;
+
+    color: $color-gray-700;
+    color: var(--color-gray-700);
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    background-color: transparent;
+    transition: .2s ease;
+
+    ion-icon {
+      font-size: 1rem;
+    }
+    span {
+      margin-left: 0.25rem;
+    }
+
+    &:hover {
+      color: $color-gray-800;
+      color: var(--color-gray-800);
+    }
+    &:active {
+      color: $color-gray-900;
+      color: var(--color-gray-900);
+    }
+  }
+
+  &__up {
+    &.active {
+      color: $color-success;
+    }
+  }
+  &__down {
+    &.active {
+      color: $color-danger;
+    }
+  }
+}
