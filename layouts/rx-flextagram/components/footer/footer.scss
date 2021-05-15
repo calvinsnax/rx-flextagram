@@ -1,6 +1,6 @@
 .app-footer {
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
   box-sizing: border-box;
 
   border-top: 1px solid $color-gray-200;
@@ -15,8 +15,8 @@
 
   @media (max-width: $mobile-w) {
     padding-top: 1.25rem;
-    padding-bottom: 2rem;
-    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+    padding-bottom: 5rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
   }
 
   .app-footer-nav {

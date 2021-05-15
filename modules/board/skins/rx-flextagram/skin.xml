@@ -19,7 +19,7 @@
           <options value="N">
             <title xml:lang="ko">표시안함</title>
           </options>
-          <options value="">
+          <options value="Y">
             <title xml:lang="ko">표시함(기본)</title>
           </options>
         </var>
