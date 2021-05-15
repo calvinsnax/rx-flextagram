@@ -39,8 +39,8 @@ RX-FLEXTAGRAM 테마는 [RX-FLEX-LAYOUT](https://github.com/calvinsnax/rx-flex-l
 
 # 설치 방법
 
-1. 코드를 다운 받습니다.
-2. 다운받은 압축파일을 압축 해제합니다.
+1. 최신버전의 소스코드를 다운 받습니다.
+2. 다운받은 소스코드 압축파일을 압축 해제합니다.
 3. 폴더 안에 있는 layouts, modules, widgets, widgetstyles 폴더를 FTP 등을 이용해 Rhymix가 설치된 루트 디렉토리에 업로드합니다.
 4. 사이트 디자인 설정에서 Flextagram Layout이 존재하는지 확인합니다. (보이지 않는다면 캐시파일 재생성을 시도해보세요.)
 
