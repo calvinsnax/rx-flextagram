@@ -175,3 +175,23 @@ $header-height: 52px;
     }
   }
 }
+
+
+// Fixed
+@media (min-width: $mobile-w - 1px) {
+  .app-board-header.fixed {
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    background-color: $color-background;
+    background: var(--color-background);
+    width: calc((#{$base-container} * 0.66666666) - (2rem + #{$base-padding}));
+    height: 51px;
+
+    transition: background-color 0.2s ease;
+
+    & + .app-board-header__space {
+      height: calc(#{$header-height} + 1rem);
+    }
+  }
+}
