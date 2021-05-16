@@ -1,5 +1,5 @@
 <?php
-class RxpFlexTheme
+class RxFlextagramTheme
 {
     public static $variables = [];
     private static $colorScheme;

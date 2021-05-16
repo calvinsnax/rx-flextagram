@@ -1,11 +1,11 @@
-<load target="login.scss" vars="RxpFlexTheme::$variables" />
+<load target="login.scss" vars="RxFlextagramTheme::$variables" />
 
 <form class="app-login" ruleset="@login" action="{getUrl()}" method="post">
     <input type="hidden" name="success_return_url" value="{$referer_url}" />
     <input type="hidden" name="act" value="procMemberLogin" />
     <input type="hidden" name="xe_validator_id" value="layouts/rx-flextagram" />
 
-    {@ $identifier = RxpFlexTheme::loginIdentifier(); }
+    {@ $identifier = RxFlextagramTheme::loginIdentifier(); }
     <input
         class="app-input app-expand"
         type="<!--@if(!is_array($identifier['field']) && $identifier['field'] === 'email_address')-->email<!--@else-->text<!--@end-->"
