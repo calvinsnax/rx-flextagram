@@ -190,6 +190,16 @@ $header-height: 52px;
 
     transition: background-color 0.2s ease;
 
+    .app-board-header__title {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+
+      &:not(.app--is-left) {
+        max-width: 50%;
+      }
+    }
+
     & + .app-board-header__space {
       height: calc(#{$header-height} + 1rem);
     }
