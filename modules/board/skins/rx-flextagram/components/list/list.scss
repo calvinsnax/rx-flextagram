@@ -197,6 +197,33 @@
       object-position: center;
       outline: none;
     }
+
+    .app-board-item__video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+
+      color: white;
+      font-size: 2rem;
+      background-color: rgba(black, 0.5);
+      border-radius: 100%;
+
+      transition: .2s ease;
+    }
+
+    &:hover {
+      .app-board-item__video {
+        background-color: $color-primary;
+      }
+    }
   }
 
   &__icons {

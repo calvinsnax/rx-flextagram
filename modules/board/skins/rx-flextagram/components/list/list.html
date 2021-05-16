@@ -41,9 +41,7 @@
         </a>
 
         <!--@if($list_config['thumbnail'] && $document->thumbnailExists())-->
-        <a href="{$document_link}" class="app-board-item__thumbnail">
-          <img src="{$document->getThumbnail(1080, 720, 'fill')}"/>
-        </a>
+        <include target="list-thumbnail.html" />
         <!--@endif-->
 
         <div class="app-board-item__icons">

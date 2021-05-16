@@ -1,0 +1,26 @@
+<a href="{$document_link}" class="app-board-item__thumbnail">
+  <!--@if($document->getExtraImages())-->
+    {@
+      $chk_movie = $chk_image = $chk_attach = false;
+    
+      if(strpos($document->getContent(),'video/mp4')!==false || strpos($document->getContent(),'video/m4v')!==false || strpos($document->getContent(),'youtube.com/embed')!==false || strpos($document->getContent(),'vimeo.com/video')!==false || strpos($document->getContent(),'kakao.com/embed')!==false || strpos($document->getContent(),'naver.com/flash')!==false || ($module_info->common_play_icon == '' && ( strpos($document->getContent(),'https://youtu.be/')!==false || strpos($document->getContent(),'https://www.youtube.com/watch?v=')!==false ) ) ):
+        $chk_movie = true;
+      elseif(preg_match("/<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/i", $document->getContent())):
+        $chk_image = true;
+      endif;
+    
+      if (!$chk_movie && !$chk_image)
+        $showIconArea = false;
+      else
+        $showIconArea = true;
+    }
+    
+    <!--@if($chk_movie)-->
+      <div class="app-board-item__video">
+        <ion-icon name="play"></ion-icon>
+      </div>
+    <!--@endif-->
+  <!--@end-->
+
+  <img src="{$document->getThumbnail(1080, 720, 'fill')}"/>
+</a>
