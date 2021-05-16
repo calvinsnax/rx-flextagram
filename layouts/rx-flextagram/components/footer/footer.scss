@@ -6,7 +6,7 @@
   border-top: 1px solid $color-gray-200;
   border-top: 1px solid var(--color-gray-200);
 
-  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 
   .color_scheme_dark & {
     border-top: 1px solid $color-gray-100;

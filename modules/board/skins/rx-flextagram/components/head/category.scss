@@ -18,6 +18,8 @@ $header-height: 52px;
   border-bottom-color: var(--color-gray-200);
   overflow-x: auto;
 
+  transition: border-color 0.2s ease;
+
   @include mobile() {
     position: relative;
     width: calc(100% + (1.25rem * 2));

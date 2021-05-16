@@ -22,7 +22,7 @@ $header-height: 52px;
   border-bottom-color: $color-gray-300;
   border-bottom-color: var(--color-gray-300);
 
-  transition: background-color .3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: background-color .2s ease, border-color 0.2s ease;
 
   .color_scheme_dark & {
     border-bottom-color: $color-gray-100;
@@ -89,7 +89,7 @@ $header-height: 52px;
 
   text-decoration: none;
 
-  transition: .3s ease-in-out;
+  transition: .2s ease;
 
   & > img,
   & > svg {

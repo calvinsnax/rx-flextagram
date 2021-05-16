@@ -28,7 +28,7 @@ ul.app-sidebar-nav {
       font-size: 0.875rem;
       text-decoration: none;
 
-      transition: color 0.3s ease-in-out;
+      transition: color 0.2s ease;
 
       & > ion-icon {
         color: $color-gray-900;
@@ -37,7 +37,7 @@ ul.app-sidebar-nav {
         margin-right: 0.875rem;
         --ionicon-stroke-width: 2.5rem;
 
-        transition: color 0.3s ease-in-out;
+        transition: color 0.2s ease;
       }
     }
 
@@ -94,7 +94,7 @@ ul.app-sidebar-nav {
     background-color: var(--color-gray-100);
     border-radius: $border-radius-1;
 
-    transition: background-color .3s ease-in-out;
+    transition: background-color .2s ease;
 
     & > li {
       padding: 0.5rem;

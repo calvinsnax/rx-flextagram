@@ -48,7 +48,7 @@
 
   box-shadow: rgba(black, 0.3) 2px 6px 16px;
 
-  transition: background-color .3s ease-in-out;
+  transition: background-color .2s ease;
 
   @media (max-width: $mobile-w) {
     right: 1rem;
