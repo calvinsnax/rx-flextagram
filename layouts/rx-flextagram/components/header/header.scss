@@ -100,11 +100,15 @@ $header-height: 52px;
     fill: $color-gray-900;
     fill: var(--color-gray-900);
 
-    image-rendering: -webkit-optimize-contrast;
-
     @media (max-width: $mobile-w) {
       height: 2.5rem;
       height: $logo-height;
+    }
+  }
+
+  &--contrast {
+    & > img {
+      image-rendering: -webkit-optimize-contrast;
     }
   }
 }

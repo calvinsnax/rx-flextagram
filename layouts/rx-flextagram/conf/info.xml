@@ -129,6 +129,18 @@
                 <description xml:lang="ko">다크 모드 시 로고 이미지를 설정할 수 있습니다.</description>
             </var>
 
+            <var name="logo_img_contrast" type="radio">
+                <title xml:lang="ko">로고 이미지 선명하게</title>
+                <description xml:lang="ko">로고 이미지의 Contrast를 높여 선명하게 만듭니다. *Chrome만 지원</description>
+
+                <options value="N">
+                    <title xml:lang="ko">사용 안함</title>
+                </options>
+                <options value="">
+                    <title xml:lang="ko">사용 (기본값)</title>
+                </options>
+            </var>
+
             <var name="logo_height" type="text">
                 <title xml:lang="ko">로고 높이</title>
                 <description xml:lang="ko">로고 이미지의 높이를 조정할 수 있습니다. (px, rem 단위 지원, 기본값: 2.875rem)</description>

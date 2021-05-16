@@ -4,9 +4,11 @@
     if($layoutConfig['logo_url']):
         $header_url = $layoutConfig['logo_url'];
     endif;
+
+    $header_logo_contrast = $layoutConfig['logo_img_contrast'] === 'Y' ? 'app-header-logo--contrast' : null
 }
 
-<a class="app-header-logo" href="{$header_url}">
+<a class="app-header-logo {$header_logo_contrast}" href="{$header_url}">
     <!--@if($layoutConfig['logo_img'])-->
         <!--@if($layoutConfig['logo_img_dark'])-->
             <!-- prettier-ignore -->

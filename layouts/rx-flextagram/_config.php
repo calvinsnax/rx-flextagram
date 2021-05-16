@@ -23,6 +23,7 @@ class RxpFlexTheme
             'footer_copyright' => $layout_info->footer_copyright ?? 'Designed by CALVINSNAX.',
             'logo_img' => $layout_info->logo_img ?? null,
             'logo_img_dark' => $layout_info->logo_img_dark ?? null,
+            'logo_img_contrast' => $layout_info->logo_img_contrast ?? 'Y',
             'logo_height' => $layout_info->logo_height ?? '2.875rem',
             'logo_text' => $layout_info->logo_text ?? 'Flextagram',
             'logo_url' => $layout_info->logo_url ?? null,
