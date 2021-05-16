@@ -44,7 +44,7 @@
       border-bottom-color: var(--color-gray-300);
       background-color: transparent;
       resize: none;
-      border-radius: none;
+      border-radius: 0 !important;
 
       appearance: none;
       -webkit-appearance: none;
@@ -150,6 +150,10 @@
 
   color: $color-gray-900;
   color: var(--color-gray-900);
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   
   transition: .2s ease;
 

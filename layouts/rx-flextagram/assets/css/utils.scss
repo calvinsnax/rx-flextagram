@@ -1,3 +1,6 @@
+// Clearfix
+// ──────────────────────────────────────────────────────
+
 .app-clearfix {
   zoom: 1;
   &:before,
@@ -10,22 +13,9 @@
   }
 }
 
-.app-flex-1 {
-  flex: 1;
-}
 
-
-.app-hidden--dark {
-  .color_scheme_dark & {
-    display: none;
-  }
-}
-
-.app-hidden--light {
-  body:not(.color_scheme_dark) & {
-    display: none;
-  }
-}
+// Flex
+// ──────────────────────────────────────────────────────
 
 .app-flex-group {
   display: flex;
@@ -35,6 +25,44 @@
     margin-right: 0.5rem;
     &:last-child {
       margin-right: 0;
+    }
+  }
+}
+
+.app-flex-1 {
+  flex: 1;
+}
+
+
+// Hidden
+// ──────────────────────────────────────────────────────
+
+.app-hidden {
+  &--dark {
+    .color_scheme_dark & {
+      display: none;
+    }
+  }
+  &--light {
+    body:not(.color_scheme_dark) & {
+      display: none;
+    }
+  }
+}
+
+.app-hidden {
+  &--mobile {
+    @media (max-width: $mobile-w) {
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  &--pc {
+    @media (min-width: $mobile-w - 1px) {
+      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
   }
 }

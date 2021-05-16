@@ -17,11 +17,9 @@
 </script>
 
 <section class="app-write">
-  <!-- <h1 class="app-write__title">
-    {$module_info->title ? $module_info->title : $module_info->browser_title} 글쓰기
-  </h1> -->
-
   <form action="./" method="post" onsubmit="return procFilter(this, insert)">
+    <include target="components/write/write-header.html" />
+
     <input type="hidden" name="mid" value="{$mid}" />
     <input type="hidden" name="document_srl" value="{$document_srl}" />
     <input type="hidden" name="content" value="<!--@if($oDocument->getContentText())-->{$oDocument->getContentText()}<!--@else-->{htmlspecialchars($mi->writeform_default_content)}<!--@end-->" />
@@ -124,7 +122,6 @@
     
     <div>
       <a class="app-button" href="{getUrl('', 'mid', $mid)}">{$lang->cmd_cancel}</a>
-      <button type="submit" onclick="return duplicateCheck(this)" class="app-button app-primary">{$lang->cmd_registration}</button>
     </div>
   </form>
 </section>
@@ -161,4 +158,5 @@
     return true
   }
 </script>
+
 <include target="components/base/base-footer.html" />

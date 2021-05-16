@@ -6,7 +6,7 @@ $header-height: 52px;
   }
 }
 
-.app-article-header {
+.app-board-header {
   position: relative;
   display: flex;
   align-items: center;
@@ -76,7 +76,6 @@ $header-height: 52px;
   }
 
   &__title {
-    display: none;
     flex: 1;
     padding-right: 1.25rem;
     font-size: 1rem;
@@ -92,6 +91,13 @@ $header-height: 52px;
 
       font-weight: 600;
       text-align: center;
+    }
+
+    &.app--left {
+      text-align: left;
+      @include mobile {
+        padding-left: 2.5rem;
+      }
     }
   }
 
@@ -110,6 +116,12 @@ $header-height: 52px;
     @include mobile() {
       padding-right: 0.5rem;
       margin-right: 0;
+    }
+
+    & > .app-button {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-right: 0.5rem;
     }
   }
   &__icon {
