@@ -10,8 +10,12 @@
 }
 
 <!--@if($layout_info->font_family === 'noto_sans')-->
+<!-- // Noto Sans KR -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<!--@else-->
+<!-- // 아리따움 돋움 -->
+<load target="assets/css/typography.scss" vars="RxpFlexTheme::$variables" />
 <!--@endif-->
 
 {@ // JS }
@@ -19,7 +23,7 @@
 
 {@ // CSS }
 <load target="assets/css/base.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/typography.scss" vars="RxpFlexTheme::$variables" />
+<load target="assets/css/content.scss" vars="RxpFlexTheme::$variables" />
 <load target="assets/css/layout.scss" vars="RxpFlexTheme::$variables" />
 <load target="assets/css/input.scss" vars="RxpFlexTheme::$variables" />
 <load target="assets/css/checkbox.scss" vars="RxpFlexTheme::$variables" />
