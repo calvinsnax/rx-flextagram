@@ -10,6 +10,10 @@
     <ion-icon name="settings-outline"></ion-icon>
   </a>
 
+  <a class="app-button app-sm  app-tooltip" title="{$lang->cmd_manage_document}" cond="$grant->manager" href="{getUrl('','module','document','act','dispDocumentManageDocument')}" onclick="popopen(this.href,'manageDocument'); return false;">
+    <ion-icon name="checkmark-done-outline"></ion-icon>
+  </a>
+
   <div class="app-divider">
   </div>
 
