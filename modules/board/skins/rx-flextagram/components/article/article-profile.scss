@@ -7,8 +7,15 @@
   &__image {
     flex: 0 0 auto;
     position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 40px;
+
+    background-color: $color-gray-200;
+    background-color: var(--color-gray-200);
     border-radius: 100%;
     overflow: hidden;
   
@@ -20,6 +27,12 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+    }
+
+    & > i, ion-icon {
+      color: $color-gray-600;
+      color: var(--color-gray-600);
+      font-size: 1.25rem;
     }
   }
 
