@@ -110,19 +110,7 @@
           <label for="comment_status">{$lang->allow_comment}</label>
         </div>
       </li>
-
-      <li cond="$is_logged && (!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')">
-        <label>작성글 관리</label>
-        <div class="app-write-option__content">
-          <button type="button" onclick="doDocumentSave(this)" class="app-write-option__item app-button app-xs">{$lang->cmd_temp_save}</button>
-          <button type="button" onclick="doDocumentLoad(this)" class="app-write-option__item app-button app-xs">{$lang->cmd_load}</button>
-        </div>
-      </li>
     </ul>
-    
-    <div>
-      <a class="app-button" href="{getUrl('', 'mid', $mid)}">{$lang->cmd_cancel}</a>
-    </div>
   </form>
 </section>
 

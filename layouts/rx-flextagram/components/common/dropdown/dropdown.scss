@@ -1,3 +1,9 @@
+@mixin mobile {
+  @media (max-width: $mobile-w) {
+    @content;
+  }
+}
+
 .app-dropdown {
   position: relative;
 }
@@ -35,29 +41,51 @@
         margin-bottom: 0;
       }
 
-      & > a {
+      & > a,
+      & > button {
         cursor: pointer;
         display: flex;
         align-items: center;
+        width: 100%;
         padding: 0.5rem 0.75rem;
+        margin: 0;
 
-        color: $color-gray-700;
-        color: var(--color-gray-700);
+        color: $color-gray-800;
+        color: var(--color-gray-800);
         font-size: 0.875rem;
         font-weight: 500;
         text-decoration: none;
-
-        border-radius: 4px;
-
+        border-radius: $border-radius-1;
+        background-color: transparent;
+        
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: none;
         transition: 0.2s ease;
 
-        i,
-        ion-icon {
-          color: $color-gray-500;
-          color: var(--color-gray-500);
+        @include mobile {
           font-size: 1rem;
+        }
+
+        i,
+        ion-icon,
+        svg {
+          width: 1.25rem;
+          height: 1.25rem;
           margin-right: 0.75rem;
+
+          color: $color-gray-600;
+          color: var(--color-gray-600);
+          font-size: 1rem;
           --ionicon-stroke-width: 3rem;
+
+          @include mobile {
+            width: 1.25rem;
+            height: 1.25rem;
+            font-size: 1.25rem;
+          }
         }
 
         &:hover {
@@ -123,15 +151,14 @@
   transition: 0.3s ease;
 }
 
-.app-dropdown.active {
-  .app-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    user-select: initial;
-    pointer-events: initial;
+.app-dropdown.active .app-dropdown-menu,
+.app-dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  user-select: initial;
+  pointer-events: initial;
 
-    transform: translateY(0);
-  }
+  transform: translateY(0);
 }
 
 .app-dropdown-menu {

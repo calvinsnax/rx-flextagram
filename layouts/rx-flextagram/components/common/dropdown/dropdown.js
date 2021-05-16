@@ -1,6 +1,5 @@
 jQuery(function ($) {
   $(".app-dropdown-toggle").on("click", function () {
-    console.log("hello");
     $(this).closest(".app-dropdown").toggleClass("active");
   });
 
@@ -12,3 +11,8 @@ jQuery(function ($) {
     }
   });
 });
+
+
+function toggleDropdown(id) {
+  jQuery(id).toggleClass("active");
+}

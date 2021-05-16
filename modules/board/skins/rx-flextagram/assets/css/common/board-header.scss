@@ -121,7 +121,10 @@ $header-height: 52px;
     & > .app-button {
       padding-left: 1rem;
       padding-right: 1rem;
-      margin-right: 0.5rem;
+      
+      &:last-child {
+        margin-right: 0.5rem;
+      }
     }
   }
   &__icon {
