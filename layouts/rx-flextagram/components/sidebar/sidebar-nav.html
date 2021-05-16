@@ -3,7 +3,7 @@
   <li loop="$sidebar_menu->list=>$key1,$val1" class="active"|cond="$val1['selected']" is-divider|cond="$val1['link'] == '/'">
       <div class="app-sidebar-nav-item">
           <!-- prettier-ignore -->
-          <a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" title="{$val1['link']}">
+          <a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" title="{strip_tags($val1['link'])}">
               <ion-icon cond="$val1['icon'] && $val1['selected']" name="{$val1['icon']}"></ion-icon>
               <ion-icon cond="$val1['icon'] && !$val1['selected']" name="{$val1['icon']}-outline"></ion-icon>
               <span>{$val1['link']}</span>
