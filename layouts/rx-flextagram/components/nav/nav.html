@@ -21,7 +21,7 @@
             }
             <li  class="active"|cond="$is_selected" is-divider|cond="$val1['link'] == '/'">
                 <!-- prettier-ignore -->
-                <a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" class="app-header-nav-icon app-tooltip"|cond="$val1['icon']" title="{$val1['link']}"|cond="$val1['icon']">
+                <a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" class="app-header-nav-icon app-tooltip"|cond="$val1['icon']" title="{strip_tags($val1['link'])}"|cond="$val1['icon']">
                     <ion-icon cond="$val1['icon'] && $is_selected" name="{$val1['icon']}"></ion-icon>
                     <ion-icon cond="$val1['icon'] && !$is_selected" name="{$val1['icon']}-outline"></ion-icon>
     
