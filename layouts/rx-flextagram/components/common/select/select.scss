@@ -9,8 +9,9 @@
 
   background: none;
   border: 1px solid $color-gray-200;
-  background-color: $color-gray-200;
-  border-radius: 6px;
+  border-color: var(--color-gray-200);
+  border-radius: $border-radius-2;
+  box-sizing: border-box;
 
   transition: .2s ease;
 
@@ -25,12 +26,14 @@
     outline: none !important;
     border: none;
     background-color: $color-gray-200;
-    border-radius: 6px;
+    background-color: var(--color-gray-200);
+    border-radius: $border-radius-1;
     
     -webkit-appearance: none;
     appearance: none;
 
     color: $color-black;
+    color: var(--color-black);
     font-size: 14px;
     font-weight: 500;
 
@@ -56,6 +59,7 @@
     align-items: center;
     height: 100%;
     color: $color-gray-600;
+    color: var(--color-gray-600);
     font-size: 1rem;
     transition: 250ms ease;
 
@@ -64,6 +68,7 @@
 
   &:hover {
     background-color: $color-gray-300;
+    background-color: var(--color-gray-300);
   }
 
   &:focus-within,
@@ -71,8 +76,9 @@
     border-color: $color-primary;
     box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
     background-color: $color-background;
+    background-color: var(--color-background);
     select {
-      background-color: $color-background;
+      background-color: var(--color-background);
     }
   }
 
