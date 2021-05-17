@@ -61,11 +61,6 @@ $header-height: 52px;
   align-items: center;
 }
 
-.app-header__left,
-.app-header__right {
-  width: 250px;
-}
-
 .app-header__right {
   justify-content: flex-end;
 }
@@ -73,6 +68,13 @@ $header-height: 52px;
 .app-header__center {
   flex: 1;
   justify-content: center;
+}
+
+.app-header-logo,
+.app-header__browser-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .app-header-logo {
@@ -91,18 +93,25 @@ $header-height: 52px;
 
   transition: .2s ease;
 
+  max-width: 180px;
+
+  @media (max-width: $mobile-w) {
+    max-width: 120px;
+  }
+
   & > img,
   & > svg {
     display: block;
     width: auto;
-    height: 2.875rem;
-    height: $logo-height;
+    max-height: 2.875rem;
+    max-height: $logo-height;
+    max-width: 100%;
     fill: $color-gray-900;
     fill: var(--color-gray-900);
 
     @media (max-width: $mobile-w) {
-      height: 2.5rem;
-      height: $logo-height;
+      max-height: 2.5rem;
+      max-height: $logo-height;
     }
   }
 
@@ -119,6 +128,11 @@ $header-height: 52px;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
+  max-width: 170px;
+
+  @media (max-width: $mobile-w) {
+    max-width: 150px;
+  }
 
   &::before {
     content: "–";
