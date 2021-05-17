@@ -142,8 +142,8 @@
             </var>
 
             <var name="logo_height" type="text">
-                <title xml:lang="ko">로고 높이</title>
-                <description xml:lang="ko">로고 이미지의 높이를 조정할 수 있습니다. (px, rem 단위 지원, 기본값: 2.875rem)</description>
+                <title xml:lang="ko">로고 최대 높이</title>
+                <description xml:lang="ko">로고 이미지의 최대 높이를 조정할 수 있습니다. (px, rem 단위 지원, 기본값: 2.875rem)</description>
             </var>
 
             <var name="logo_text" type="text">
