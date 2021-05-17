@@ -3,9 +3,9 @@
 
 {@
     // 브라우저 테마 컬러 지정
-    $layoutConfig = RxpFlexTheme::getConfig($layout_info);
+    $layoutConfig = RxFlextagramTheme::getConfig($layout_info);
     Context::addMetaTag("theme-color", $layoutConfig['primary_color']);
-    RxpFlexTheme::colorScheme();
+    RxFlextagramTheme::colorScheme();
 
     // 게시판인지 체크
     $is_board = '';
@@ -23,7 +23,7 @@
 
     $heaer_darkmode_text = "다크 모드로 전환";
 
-    if(RxpFlexTheme::isDarkMode()):
+    if(RxFlextagramTheme::isDarkMode()):
         $heaer_darkmode_text = "라이트 모드로 전환";
     endif;
 }

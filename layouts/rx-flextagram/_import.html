@@ -2,11 +2,11 @@
 <include cond="!$rxpFlexTheme" target="_config.php" />
 
 {@
-    RxpFlexTheme::init($layout_info);
+    RxFlextagramTheme::init($layout_info);
     
-    $rxpFlexTheme = new rxpFlexTheme();
-    $layoutConfig = RxpFlexTheme::getConfig($layout_info);
-    $rxpFlexTheme->variables = RxpFlexTheme::$variables;
+    $rxpFlexTheme = new RxFlextagramTheme();
+    $layoutConfig = RxFlextagramTheme::getConfig($layout_info);
+    $rxpFlexTheme->variables = RxFlextagramTheme::$variables;
 }
 
 <!--@if($layout_info->font_family === 'noto_sans')-->
@@ -15,22 +15,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <!--@else-->
 <!-- // 아리따움 돋움 -->
-<load target="assets/css/typography.scss" vars="RxpFlexTheme::$variables" />
+<load target="assets/css/typography.scss" vars="RxFlextagramTheme::$variables" />
 <!--@endif-->
 
 {@ // JS }
 <load target="assets/js/jquery.cookie.js" type="body" />
 
 {@ // CSS }
-<load target="assets/css/base.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/content.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/layout.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/input.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/checkbox.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/toggle.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/button.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/link.scss" vars="RxpFlexTheme::$variables" />
-<load target="assets/css/utils.scss" vars="RxpFlexTheme::$variables" />
+<load target="assets/css/base.scss" vars="RxFlextagramTheme::$variables" />
+<load target="assets/css/content.scss" vars="RxFlextagramTheme::$variables" />
+<load target="assets/css/layout.scss" vars="RxFlextagramTheme::$variables" />
+<load target="assets/css/input.scss" vars="RxFlextagramTheme::$variables" />
+<load target="assets/css/checkbox.scss" vars="RxFlextagramTheme::$variables" />
+<load target="assets/css/toggle.scss" vars="RxFlextagramTheme::$variables" />
+<load target="assets/css/button.scss" vars="RxFlextagramTheme::$variables" />
+<load target="assets/css/link.scss" vars="RxFlextagramTheme::$variables" />
+<load target="assets/css/utils.scss" vars="RxFlextagramTheme::$variables" />
 
 {@ // COMPONENTS }
 <include target="components/common/confirm/confirm.html" />
