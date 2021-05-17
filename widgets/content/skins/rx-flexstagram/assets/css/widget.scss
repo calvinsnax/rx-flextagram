@@ -1,7 +1,7 @@
 $tab-height: 2.875rem;
 
 ul.app-widget-tab {
-  list-style-type: none;
+  list-style-type: none !important;
   display: flex;
   align-items: center;
   height: $tab-height;
