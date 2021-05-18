@@ -12,7 +12,6 @@ jQuery(function ($) {
 function toggleSidebar(id) {
   // 초기화
   $('.app-sidebar').not('#'+id).removeClass('active');
-  $('html').removeClass('app--overflow-hidden');
 
   const target = $("#" + id);
   $(target).toggleClass('active');
