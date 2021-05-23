@@ -53,7 +53,10 @@ $toolbar-gap: 10px;
   }
 
   @include mobile {
-    border: 1px solid $color-gray-200;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-color: $color-gray-200;
     border-color: var(--color-gray-200);
 
     .color_scheme_dark & {
