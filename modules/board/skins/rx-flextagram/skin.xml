@@ -2,8 +2,8 @@
 <skin version="0.2">
     <title xml:lang="ko">RX-FLEXTAGRAM</title>
     <description xml:lang="ko">Rhymix Flextagram 레이아웃 전용 게시판 스킨 (다른 레이아웃에서는 작동하지 않습니다.)</description>
-    <version>1.0.0</version>
-    <date>2021-05-16</date>
+    <version>1.1.0</version>
+    <date>2021-05-24</date>
     <author email_address="hello@calvinsnax.com" link="https://calvinsnax.com/">
       <name xml:lang="ko">C Λ L V I N - S N Λ X</name>
     </author>

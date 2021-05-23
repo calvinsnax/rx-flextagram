@@ -2,8 +2,8 @@
 <layout version="0.2">
     <title xml:lang="ko">RX-FLEXTAGRAM 레이아웃</title>
     <description xml:lang="ko">Rhymix 전용 SNS 스타일 오픈소스 레이아웃</description>
-    <version>1.0.0</version>
-    <date>2021-05-15</date>
+    <version>1.1.0</version>
+    <date>2021-05-24</date>
     <author email_address="hello@calvinsnax.com" link="https://calvinsnax.com/">
         <name xml:lang="ko">CΛLVIN-SNΛX</name>
     </author>
