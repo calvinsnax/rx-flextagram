@@ -3,7 +3,15 @@
 
 <div class="app-comment-form">
   <div>
-    <h1 class="app-comment-form__title">댓글 수정</h1>
+    <h1 class="app-comment-form__title">
+      <!--@if($act === 'dispBoardModifyComment')-->
+      댓글 수정
+      <!--@elseif($act === 'dispBoardReplyComment')-->
+      대댓글 작성
+      <!--@else-->
+      댓글 작성
+      <!--@end-->
+    </h1>
   
     <form action="./" method="post" onsubmit="return procFilter(this, insert_comment)">
       <input type="hidden" name="mid" value="{$mid}" />

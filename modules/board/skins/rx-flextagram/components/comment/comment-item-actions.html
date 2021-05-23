@@ -1,12 +1,17 @@
 <div class="app-comment-item__actions">
   <include target="comment-vote.html" />
 
-  <a cond="$grant->write_comment && $oDocument->isEnableComment()" class="comment-item-tool app-comment-item__link" 
-    onclick="reComment('{$comment->get('document_srl')}',
-      '{$comment->get('comment_srl')}',
-      '{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}');
-      return false;"
+  <!--@if($grant->write_comment && $oDocument->isEnableComment())-->
+  {@
+    $comment_srl = $comment->get('comment_srl');
+    $editor_url = getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl);
+    $target_name = $comment->getNickName();
+  }
+  <a
+    class="comment-item-tool app-comment-item__link" 
+    onclick="onClickOpenComment('{$comment_srl}', '{$editor_url}', '{$target_name}'); return false;"
   >{$lang->cmd_reply}</a>
+  <!--@end-->
 
   <div cond="$grant->write_comment && $oDocument->isEnableComment()" class="app-dropdown">
     <a class="app-comment-item__link app-dropdown-toggle">

@@ -7,7 +7,7 @@
       $isMyVoted = $oDocument->getMyVote() == 1;
       $voteActiveClassName = $isMyVoted ? 'active' : null;
     }
-    <a class="app-article-toolbar__item app--is-vote {$voteActiveClassName}" data-type="up" onclick="alArticleVote(this)">
+    <a class="app-article-toolbar__item app--is-vote app-tooltip {$voteActiveClassName}" title="좋아요" data-type="up" onclick="alArticleVote(this)">
       <div class="app-icon">
         <!--@if($isMyVoted)-->
           <ion-icon name="heart"></ion-icon>
@@ -15,7 +15,7 @@
           <ion-icon name="heart-outline"></ion-icon>
         <!--@end-->
       </div>
-      <span>좋아요</span>
+      <!-- <span>좋아요</span> -->
       <span cond="$oDocument->get('voted_count') > 0">{$oDocument->get('voted_count')}</span>
     </a>
     
@@ -24,7 +24,7 @@
         $isMyBlamed = $oDocument->getMyVote() == -1;
         $blameActiveClassName = $isMyBlamed ? 'active' : null;
       }
-      <a class="app-article-toolbar__item app--is-blame {$blameActiveClassName}" data-type="down" onclick="alArticleVote(this)">
+      <a class="app-article-toolbar__item app--is-blame app-tooltip {$blameActiveClassName}" title="싫어요" data-type="down" onclick="alArticleVote(this)">
         <div class="app-icon">
           <!--@if($isMyBlamed)-->
             <ion-icon name="heart-dislike"></ion-icon>

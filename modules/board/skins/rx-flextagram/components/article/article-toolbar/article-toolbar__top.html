@@ -1,0 +1,27 @@
+<div class="app-article-toolbar__top">
+  {@ // 추천 }
+  <include target="../article-vote/article-vote.html" />
+
+  <a href="#comment" class="app-article-toolbar__item app-tooltip" title="{$lang->comment}">
+    <div class="app-icon">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+    </div>
+
+    <span>{$oDocument->getCommentcount()}</span> 
+  </a>
+
+  <a id="share-article" class="app-article-toolbar__item app-tooltip" title="공유" onclick="onClickShare()">
+    <div class="app-icon">
+      <ion-icon name="share-outline"></ion-icon>
+    </div>
+  </a>
+
+  <!-- <div class="app-flex-1"></div> -->
+
+  {@ // 스크랩 }
+  <a cond="$is_logged" title="스크랩" href="javascript:doCallModuleAction('member','procMemberScrapDocument',{$document_srl})" class="app-article-toolbar__item app-tooltip">
+    <div class="app-icon">
+      <ion-icon name="bookmark-outline"></ion-icon>
+    </div>
+  </a>
+</div>

@@ -1,0 +1,19 @@
+<load target="article-toolbar__comment.js" />
+
+<div class="app-article-toolbar__comment">
+  {@ // 기본 댓글 작성 }
+  <!--@if($grant->write_comment && $oDocument->isEnableComment())-->
+    {@
+      $edit_url = getUrl('act','dispBoardWriteComment');
+    }
+    <button
+      class="app-article-toolbar__comment-button"
+      onclick="onClickOpenComment('', '{$edit_url}')"
+    >
+      <div class="app-flex-1">댓글을 작성해보세요.</div>
+      <div class="app-comment-write-submit" disabled>등록</div>
+    </button>
+  <!--@else-->
+  {$lang->msg_not_permitted}
+  <!--@end-->
+</div>

@@ -35,7 +35,7 @@
   </div>
   
   {@ // 댓글 작성 }
-  <include target="comment-write.html" cond="$grant->write_comment && $oDocument->isEnableComment()" />
+  <include target="comment-write/comment-write.html" cond="$grant->write_comment && $oDocument->isEnableComment()" />
 </div>
 
 {@ // 댓글 하단 광고 }

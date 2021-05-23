@@ -1,0 +1,82 @@
+<load target="../../../assets/js/autosize.min.js" />
+<load target="../../../assets/js/sticker.js" cond="$mi->comment_sticker == 'Y'" />
+<load target="comment-write.scss" vars="$rxpFlexTheme->variables" />
+<load target="comment-write.js" />
+
+{@ // 댓글 작성 }
+<div class="app-comment-write__wrap">
+  <div class="app-container">
+    <form id="app-comment-form" class="app-comment-write" action="./" method="post" onsubmit="return procFilter(this, insert_comment)" id="write_comment">
+      <input type="hidden" name="error_return_url" value="{$mid}" />
+      <input type="hidden" name="mid" value="{$mid}" />
+      <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+      <input type="hidden" name="parent_srl" value="" />
+
+      <input type="hidden" id="comment-input-origin" name="content"></input>
+
+      <div class="app-comment-write__target">
+        <span class="app-comment-write__target__text"></span>
+      </div>
+    
+      <!--@if(!$is_logged)-->
+      <div class="app-comment-write__name">
+        <!-- <block cond="$is_logged">
+          {$logged_info->nick_name}
+        </block> -->
+        
+        <block cond="!$is_logged">
+          <input type="text" name="nick_name" placeholder="{$lang->writer}" class="app-input" />
+          <input type="password" name="password" placeholder="{$lang->password}" class="app-input" />
+        </block>
+      </div>
+      <!--@end-->
+    
+      <div class="app-comment-write__content">
+        <div cond="!$is_logged" class="tw-flex tw-mb-3">
+          
+        </div>
+        
+        <div class="app-comment-write__editor">
+          <textarea
+            id="comment-input-fake"
+            class="app-comment-input__temp"
+            style="resize: none"
+          ></textarea>
+        </div>
+      </div>
+    
+      <div class="app-comment-write__footer">
+        <div cond="$mi->secret=='Y'" class="app-comment-write__footer-item">
+          <input type="checkbox" name="is_secret" value="Y" id="is_secret" class="app-toggle" />
+          <label for="is_secret">비밀</label>
+        </div>
+    
+        <div class="app-comment-write__footer-item">
+          <a id="use-editor" class="app-link" href="">에디터</a>
+        </div>
+    
+        <div class="app-comment-write__footer-item" cond="$is_logged && $mi->comment_sticker == 'Y'">
+          <a class="app-link" href="javascript:;" title="스티커" onclick="loadStickerList();">
+            <ion-icon name="happy-outline"></ion-icon>
+          </a>
+        </div>
+        
+        <div class="app-divider"></div>
+        
+        <button type="button" class="app-comment-write-cancel" onclick="onClickCloseComment()">{$lang->cmd_cancel}</button>
+        <button
+          id="app-comment-submit"
+          class="app-comment-write-submit"
+          onclick="setTextareaReplaceComment()"
+          disabled
+        >{$lang->cmd_registration}</button>
+      </div>
+    
+      {@ // 스티커 모달 }
+      <div cond="$mi->comment_sticker === 'Y'" class="app-sticker-comment">
+        <include target="comment-sticker.html" />
+      </div>
+      
+    </form>
+  </div>
+</div>
