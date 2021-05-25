@@ -13,9 +13,10 @@
         placeholder="{$identifier['title']}"
         required
         tabindex="1"
+        autocomplete="<!--@if(!is_array($identifier['field']) && $identifier['field'] === 'email_address')-->email<!--@else-->id<!--@end-->"
     />
 
-    <input class="app-input app-expand" type="password" name="password" placeholder="비밀번호" required tabindex="2" />
+    <input class="app-input app-expand" type="password" name="password" placeholder="비밀번호" required tabindex="2" autocomplete="current-password" />
 
     <div class="app-login-options">
         <input
