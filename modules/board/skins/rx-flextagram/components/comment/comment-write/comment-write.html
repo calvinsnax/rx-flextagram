@@ -1,5 +1,4 @@
 <load target="../../../assets/js/autosize.min.js" />
-<load target="../../../assets/js/sticker.js" cond="$mi->comment_sticker == 'Y'" />
 <load target="comment-write.scss" vars="$rxpFlexTheme->variables" />
 <load target="comment-write.js" />
 
@@ -54,12 +53,6 @@
         <div class="app-comment-write__footer-item">
           <a id="use-editor" class="app-link" href="">에디터</a>
         </div>
-    
-        <div class="app-comment-write__footer-item" cond="$is_logged && $mi->comment_sticker == 'Y'">
-          <a class="app-link" href="javascript:;" title="스티커" onclick="loadStickerList();">
-            <ion-icon name="happy-outline"></ion-icon>
-          </a>
-        </div>
         
         <div class="app-divider"></div>
         
@@ -70,11 +63,6 @@
           onclick="setTextareaReplaceComment()"
           disabled
         >{$lang->cmd_registration}</button>
-      </div>
-    
-      {@ // 스티커 모달 }
-      <div cond="$mi->comment_sticker === 'Y'" class="app-sticker-comment">
-        <include target="comment-sticker.html" />
       </div>
       
     </form>

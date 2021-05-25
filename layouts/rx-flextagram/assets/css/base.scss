@@ -61,7 +61,10 @@
 html {
   overflow-x: hidden;
   overflow-y: overlay;
+}
 
+html,
+.custom-scroll {
   &::-webkit-scrollbar {
     width: 12px;
     transition: 250ms;
@@ -78,6 +81,7 @@ html {
     transition: 250ms;
   }
 }
+
 body {
   font-size: 16px;
   color: $color-gray-900;

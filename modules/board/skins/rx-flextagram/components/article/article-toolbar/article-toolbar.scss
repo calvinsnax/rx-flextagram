@@ -96,10 +96,6 @@ $toolbar-gap: 10px;
     height: 100%;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-
-    color: $color-gray-600;
-    color: var(--color-gray-600);
-    font-size: 1rem;
     text-align: left;
 
     @include mobile() {
@@ -119,7 +115,7 @@ $toolbar-gap: 10px;
 
       color: $color-gray-600;
       color: var(--color-gray-600);
-      font-size: 1rem;
+      font-size: 0.875rem;
       text-align: left;
 
       border: none;

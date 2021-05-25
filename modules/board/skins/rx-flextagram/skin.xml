@@ -23,6 +23,28 @@
             <title xml:lang="ko">표시함(기본)</title>
           </options>
         </var>
+
+         <var name="template" type="radio">
+          <title xml:lang="ko">템플릿</title>
+
+          <options value="">
+            <title xml:lang="ko">SNS형 (기본)</title>
+          </options>
+          <options value="list">
+            <title xml:lang="ko">리스트형</title>
+          </options>
+        </var>
+         
+         <var name="category_style" type="radio">
+          <title xml:lang="ko">카테고리 스타일</title>
+
+          <options value="">
+            <title xml:lang="ko">탭형 (기본)</title>
+          </options>
+          <options value="select">
+            <title xml:lang="ko">셀렉트박스형</title>
+          </options>
+        </var>
       </group>
 
       <group>

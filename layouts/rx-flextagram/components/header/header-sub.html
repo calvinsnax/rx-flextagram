@@ -1,0 +1,21 @@
+{@ // 상단 메뉴의 2차 메뉴를 표시 }
+<!--@foreach($global_menu->list as $value)-->
+<!--@if($value['selected'] && $value['list'])-->
+{@
+  $header_sub_menu->list = $value['list'];
+}
+<!--@end-->
+<!--@endforeach-->
+
+<nav cond="$header_sub_menu" class="app-header-sub">
+  <div class="app-container">
+    <ul class="app-tab">
+      <li loop="$header_sub_menu->list=>$key2,$val2" class="active"|cond="$val2['selected']" is-divider|cond="$val2['link'] == '/'">
+        <a href="{$val2['href']}" target="_blank"|cond="$val2['open_window']=='Y'" title="{$val2['link']}">
+          <!-- <ion-icon cond="$val2['desc']" name="{$val2['desc']}"></ion-icon> -->
+          <span>{$val2['link']}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

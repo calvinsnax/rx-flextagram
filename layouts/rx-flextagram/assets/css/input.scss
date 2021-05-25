@@ -1,4 +1,8 @@
-.app-input {
+.app-input,
+.app-extra-form input[type="text"],
+.app-extra-form input[type="email"],
+.app-extra-form input[type="phone"],
+.app-extra-form input[type="date"] {
   padding: 0;
   padding-left: 16px;
   height: 40px;

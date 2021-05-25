@@ -13,7 +13,9 @@
   <!--@end-->
 <!--@end-->
 
-<ul class="app-head-category" cond="$module_info->use_category === 'Y'">
+<!--@if($module_info->category_style === 'select')-->
+<!--@else-->
+<ul class="app-tab app-head-category">
   <li class="active"|cond="!$category">
     <a href="{getUrl('category', '', 'document_srl', '', 'page', '')}">{$lang->total}</a>
   </li>
@@ -41,3 +43,4 @@
     </div>
   </li>
 </ul>
+<!--@end-->

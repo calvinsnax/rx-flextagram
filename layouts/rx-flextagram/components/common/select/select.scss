@@ -1,15 +1,16 @@
 .app-select {
   cursor: pointer;
+  cursor: pointer;
   position: relative;
   display: inline-flex;
   align-items: center;
   width: auto;
   min-width: 142px;
-  height: 40px;
+  height: 36px;
 
   background: none;
-  border: 1px solid $color-gray-200;
-  border-color: var(--color-gray-200);
+  border: 1px solid $color-gray-100;
+  border-color: var(--color-gray-100);
   border-radius: $border-radius-2;
   box-sizing: border-box;
 
@@ -25,8 +26,8 @@
     padding-right: 36px;
     outline: none !important;
     border: none;
-    background-color: $color-gray-200;
-    background-color: var(--color-gray-200);
+    background-color: $color-gray-100;
+    background-color: var(--color-gray-100);
     border-radius: $border-radius-1;
     
     -webkit-appearance: none;

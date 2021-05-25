@@ -6,7 +6,7 @@
     <label for="check-all"></label>
   </div>
 
-  <div class="app-button-group">
+  <div cond="$grant->manager" class="app-button-group">
     <a class="app-button app-sm app-tooltip" title="{$lang->cmd_management}" cond="$grant->manager" href="{getUrl('act','dispBoardAdminBoardInfo')}">
       <ion-icon name="settings-outline"></ion-icon>
     </a>
@@ -15,6 +15,16 @@
       <ion-icon name="checkmark-done-outline"></ion-icon>
     </a>
   </div>
+
+  <!--@if($category_list && $module_info->category_style === 'select')-->
+  <div class="app-select">
+    <select onchange="if(this.value) location.href=(this.value);">
+      <option loop="$cate_list=>$key,$val" selected|cond="$category == $val->category_srl" value="{getUrl('category', $val->category_srl,'document_srl','', 'page', '')}">
+        {$val->title}
+      </option>
+    </select>
+  </div>
+  <!--@end-->
 
   <div class="app-divider">
   </div>

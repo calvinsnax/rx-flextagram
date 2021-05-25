@@ -11,6 +11,12 @@
 {@ // 목록 }
 <block cond="!$oDocument->isExists()">
   <include target="../head/head.html" />
-  <include target="../list/list.html" />
+  
+  <!--@if($module_info->template == 'list')-->
+  <include target="../../templates/list/list.html" />
+  <!--@else-->
+  <include target="../../templates/sns/sns.html" />
+  <!--@end-->
+
   <include target="../footer/footer.html" />
 </block>
