@@ -15,8 +15,11 @@
           <ion-icon name="heart-outline"></ion-icon>
         <!--@end-->
       </div>
-      <!-- <span>좋아요</span> -->
-      <span cond="$oDocument->get('voted_count') > 0">{$oDocument->get('voted_count')}</span>
+      <span class="app-article-vote__count">
+        <!--@if($oDocument->get('voted_count') > 0)-->
+        {$oDocument->get('voted_count')}
+        <!--@end-->
+      </span>
     </a>
     
     <!--@if($list_config['blamed_count'])-->
@@ -33,7 +36,11 @@
           <!--@end-->
         </div>
 
-        <span cond="$oDocument->get('blamed_count') > 0">{$oDocument->get('blamed_count')}</span>
+        <span class="app-article-vote__count">
+          <!--@if($oDocument->get('blamed_count') > 0)-->
+          {$oDocument->get('blamed_count')}
+          <!--@end-->
+        </span>
       </a>
     <!--@endif-->
   </div>
