@@ -1,7 +1,7 @@
 {@ // 하단 }
 <div class="app-board-footer">
 	<include target="../empty-space/empty-space.html" />
-	<include target="tools-bottom.html" cond="$grant->write_document" />
+	<include target="tools-bottom.html" />
 
 	{@ // 페이지네이션 }
 	<include cond="!Mobile::isMobileCheckByAgent()" target="pagination.html" />

@@ -7,6 +7,7 @@ $header-height: 52px;
 }
 
 .app-head-category {
+  position: relative;
   margin-top: 0;
   margin-bottom: 2rem;
 
@@ -88,4 +89,21 @@ $header-height: 52px;
   visibility: visible;
   user-select: initial;
   pointer-events: initial;
+}
+
+// 카테고리 오른쪽 검색 아이콘
+.app-category-search {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+
+  color: var(--color-gray-900);
+  font-size: 1.25rem;
 }

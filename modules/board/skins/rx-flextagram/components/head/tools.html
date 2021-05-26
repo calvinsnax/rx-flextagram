@@ -17,7 +17,7 @@
   </div>
 
   <!--@if($category_list && $module_info->category_style === 'select')-->
-  <div class="app-select">
+  <div class="app-select" style="margin-right: 0.75rem;">
     <select onchange="if(this.value) location.href=(this.value);">
       <option loop="$cate_list=>$key,$val" selected|cond="$category == $val->category_srl" value="{getUrl('category', $val->category_srl,'document_srl','', 'page', '')}">
         {$val->title}
