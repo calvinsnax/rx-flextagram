@@ -79,6 +79,8 @@ $header-height: 52px;
       transition: color .2s ease;
 
       @include mobile() {
+        padding-top: 0.5rem;
+        font-size: 0.875rem;
         font-weight: 500;
       }
 
