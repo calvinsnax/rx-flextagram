@@ -39,11 +39,13 @@
     }
 
     th {
-      min-width: 3.75rem;
+      min-width: 160px;
+      max-width: 200px;
       font-weight: bold;
-      white-space: nowrap;
 
       @media (max-width: 768px) {
+        max-width: 100%;
+        width: 100%;
         padding-top: 1rem;
         padding-bottom: 0;
       }
