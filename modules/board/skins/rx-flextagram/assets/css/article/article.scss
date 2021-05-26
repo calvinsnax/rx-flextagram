@@ -7,6 +7,14 @@
   display: none;
 }
 
+.app-footer {
+  padding-bottom: 9.5rem;
+  @media (max-width: $mobile-w) {
+    padding-bottom: 5rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+}
+
 .app-article-title {
   margin-bottom: 1rem;
   
